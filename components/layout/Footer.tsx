@@ -57,34 +57,34 @@ export function Footer({ settings = {} }: FooterProps) {
             </div>
             
             {/* Description */}
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-white/90 leading-relaxed font-medium">
               {companyDescription}
             </p>
 
             {/* Address */}
-            <div className="space-y-2 text-sm text-gray-300">
-              <div className="flex items-start gap-2">
-                <svg className="w-4 h-4 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <div className="space-y-3 text-sm sm:text-base">
+              <div className="flex items-start gap-3 text-white/90">
+                <svg className="w-5 h-5 mt-0.5 flex-shrink-0 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span>{contactAddress}</span>
+                <span className="font-medium">{contactAddress}</span>
               </div>
               
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-3 text-white/90">
+                <svg className="w-5 h-5 flex-shrink-0 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
-                <a href={`tel:${contactPhone}`} className="hover:text-[#D4AF37] transition-colors">
+                <a href={`tel:${contactPhone}`} className="font-semibold hover:text-[#D4AF37] transition-colors">
                   {contactPhone}
                 </a>
               </div>
 
-              <div className="flex items-center gap-2">
-                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-3 text-white/90">
+                <svg className="w-5 h-5 flex-shrink-0 text-[#D4AF37]" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
-                <a href={`mailto:${contactEmail}`} className="hover:text-[#D4AF37] transition-colors">
+                <a href={`mailto:${contactEmail}`} className="font-semibold hover:text-[#D4AF37] transition-colors">
                   {contactEmail}
                 </a>
               </div>
@@ -93,32 +93,32 @@ export function Footer({ settings = {} }: FooterProps) {
 
           {/* Column 2 - Footer Menu */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
               <span className="text-xl">📋</span> Footer Menu
             </h3>
-            <nav className="flex flex-col space-y-2.5">
-              <Link href="/" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+            <nav className="flex flex-col space-y-3">
+              <Link href="/" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Home
               </Link>
-              <Link href="/about" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/about" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 About Us
               </Link>
-              <Link href="/products?category=diabetic-care" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/products?category=diabetic-care" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Diabetic Care
               </Link>
-              <Link href="/products?category=digestive-care" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/products?category=digestive-care" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Digestive Care
               </Link>
-              <Link href="/products?category=health-nutrition" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/products?category=health-nutrition" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Health & Nutrition
               </Link>
-              <Link href="/products?category=immunity-booster" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/products?category=immunity-booster" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Immunity Booster
               </Link>
-              <Link href="/blogs" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/blogs" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Blogs
               </Link>
-              <Link href="/products" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/products" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 All Products
               </Link>
             </nav>
@@ -126,32 +126,32 @@ export function Footer({ settings = {} }: FooterProps) {
 
           {/* Column 3 - Important Links */}
           <div className="space-y-4">
-            <h3 className="text-lg font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
               <span className="text-xl">🔗</span> Important Links
             </h3>
-            <nav className="flex flex-col space-y-2.5">
-              <Link href="/careers" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+            <nav className="flex flex-col space-y-3">
+              <Link href="/careers" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Careers
               </Link>
-              <Link href="/contact" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/contact" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Contact Us
               </Link>
-              <Link href="/authenticity" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/authenticity" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Authenticity
               </Link>
-              <Link href="/refund-policy" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/refund-policy" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Refund Policy
               </Link>
-              <Link href="/privacy-policy" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/privacy-policy" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/shipping-policy" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/shipping-policy" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Shipping Policy
               </Link>
-              <Link href="/cancellation-policy" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/cancellation-policy" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Cancellation policy
               </Link>
-              <Link href="/terms-and-conditions" className="text-sm text-gray-300 hover:text-[#D4AF37] transition-colors">
+              <Link href="/terms-and-conditions" className="text-sm sm:text-base text-white/90 font-medium hover:text-[#D4AF37] transition-colors">
                 Terms and Conditions
               </Link>
             </nav>
@@ -159,10 +159,10 @@ export function Footer({ settings = {} }: FooterProps) {
 
           {/* Column 4 - Newsletter Signup */}
           <div className="space-y-5">
-            <h3 className="text-lg font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
+            <h3 className="text-lg sm:text-xl font-bold text-[#D4AF37] mb-4 flex items-center gap-2">
               <span className="text-xl">💌</span> Sign Up & Save 10%
             </h3>
-            <p className="text-sm text-gray-300">
+            <p className="text-sm sm:text-base text-white/90 font-medium">
               Get a 10% discount on your first order.
             </p>
 
@@ -250,7 +250,7 @@ export function Footer({ settings = {} }: FooterProps) {
 
             {/* Payment Methods */}
             <div className="pt-3">
-              <p className="text-xs text-gray-300 mb-2 font-semibold">We Accept:</p>
+              <p className="text-sm text-white/90 mb-2 font-bold">We Accept:</p>
               <div className="bg-white/95 rounded-xl p-3 flex items-center justify-center gap-2 flex-wrap shadow-lg">
                 <div className="flex items-center">
                   <div className="w-6 h-5 bg-red-500 rounded-full -mr-2 shadow-sm"></div>
@@ -284,7 +284,7 @@ export function Footer({ settings = {} }: FooterProps) {
       <div className="border-t-2 border-[#D4AF37]/30 bg-black/20">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 relative">
-            <p className="text-sm text-gray-300 text-center md:text-left">
+            <p className="text-sm sm:text-base text-white/90 font-medium text-center md:text-left">
               © {new Date().getFullYear()}, <span className="font-bold text-[#D4AF37]">{companyName}</span>. {companyName} Ayurveda & Wellness Private Limited. All rights reserved.
             </p>
             

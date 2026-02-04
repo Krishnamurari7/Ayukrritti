@@ -93,10 +93,10 @@ export default async function ProductsPage({
               🌿 100% Natural Products
             </span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 drop-shadow-lg">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 md:mb-4 drop-shadow-lg text-white">
             {currentCategory ? currentCategory.name : "All Ayurvedic Products"}
           </h1>
-          <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white font-medium text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
             {currentCategory?.description ||
               "Discover our range of 100% natural Ayurvedic products for holistic wellness"}
           </p>

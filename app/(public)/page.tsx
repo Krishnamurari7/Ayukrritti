@@ -103,17 +103,17 @@ export default async function HomePage() {
     <div className="flex flex-col">
       {/* Top Announcement Bar - Marquee */}
       {announcementItems && announcementItems.length > 0 && (
-        <div className="bg-gradient-to-r from-[#1a8f4a] via-[#D4AF37] to-[#1a8f4a] text-white py-2 text-sm overflow-hidden">
+        <div className="bg-gradient-to-r from-[#1a8f4a] via-[#D4AF37] to-[#1a8f4a] py-2 text-sm sm:text-base overflow-hidden">
           <div className="marquee-container">
             <div className="marquee-content animate-marquee">
               {announcementItems.map((item: any, index: number) => (
-                <span key={`first-${index}`} className="mx-8">
+                <span key={`first-${index}`} className="mx-6 sm:mx-8 text-white font-semibold drop-shadow-sm">
                   {item.icon} {item.content}
                 </span>
               ))}
               {/* Duplicate for seamless loop */}
               {announcementItems.map((item: any, index: number) => (
-                <span key={`second-${index}`} className="mx-8">
+                <span key={`second-${index}`} className="mx-6 sm:mx-8 text-white font-semibold drop-shadow-sm">
                   {item.icon} {item.content}
                 </span>
               ))}
@@ -140,8 +140,8 @@ export default async function HomePage() {
                     <span className="text-2xl sm:text-3xl">{badge.icon}</span>
                   </div>
                   <div>
-                    <p className="font-bold text-sm sm:text-base text-gray-900">{badge.title}</p>
-                    <p className="text-xs sm:text-sm text-gray-600">{badge.subtitle}</p>
+                    <p className="font-bold text-sm sm:text-base text-gray-900 leading-tight">{badge.title}</p>
+                    <p className="text-xs sm:text-sm text-gray-700 font-medium">{badge.subtitle}</p>
                   </div>
                 </div>
               ))}
@@ -297,7 +297,7 @@ export default async function HomePage() {
                     <div className="mb-3 sm:mb-4 text-4xl sm:text-5xl md:text-6xl group-hover:scale-125 transition-transform duration-300 drop-shadow-lg">
                       {icons[category.slug] || '🌿'}
                     </div>
-                    <h3 className="font-bold text-xs sm:text-sm md:text-base group-hover:text-[#D4AF37] transition-colors">
+                    <h3 className="font-bold text-xs sm:text-sm md:text-base text-gray-900 group-hover:text-[#D4AF37] transition-colors">
                       {category.name}
                     </h3>
                   </div>
