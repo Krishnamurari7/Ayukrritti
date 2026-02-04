@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Cancellation Policy | Divyaarth",
-  description: "Learn about our order cancellation policy, process, and timelines for Divyaarth products.",
+  title: "Cancellation Policy | Ayukrriti Ayurveda",
+  description: "Learn about our order cancellation policy, process, and timelines for Ayukrriti Ayurveda products.",
 };
 
 export default function CancellationPolicyPage() {
@@ -31,7 +31,7 @@ export default function CancellationPolicyPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                At Divyaarth, we understand that sometimes you may need to cancel your order. This Cancellation Policy outlines the conditions under which orders can be cancelled and the process to do so.
+                At Ayukrriti Ayurveda, we understand that sometimes you may need to cancel your order. This Cancellation Policy outlines the conditions under which orders can be cancelled and the process to do so.
               </p>
               <p>
                 We strive to make the cancellation process as simple and hassle-free as possible while ensuring fair practices for all customers.
@@ -84,7 +84,7 @@ export default function CancellationPolicyPage() {
                 <div className="bg-gray-50 border-l-4 border-green-600 p-6">
                   <h4 className="font-semibold text-gray-900 mb-2">Step 1: Login to Your Account</h4>
                   <p className="text-gray-700">
-                    Go to www.divyaarth.com and log in to your account using your credentials.
+                    Go to www.ayukrriti.com and log in to your account using your credentials.
                   </p>
                 </div>
 
@@ -119,10 +119,10 @@ export default function CancellationPolicyPage() {
                   <p className="text-gray-700 mb-2">
                     <span className="font-medium">Email:</span>{" "}
                     <a 
-                      href="mailto:support@divyaarth.com" 
+                      href="mailto:support@ayukrriti.com" 
                       className="text-green-600 hover:text-green-700 underline"
                     >
-                      support@divyaarth.com
+                      support@ayukrriti.com
                     </a>
                   </p>
                   <p className="text-gray-700 mb-3">
@@ -173,7 +173,7 @@ export default function CancellationPolicyPage() {
 
           {/* Seller Cancellation */}
           <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cancellation by Divyaarth</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Cancellation by Ayukrriti Ayurveda</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 In rare cases, we may need to cancel your order due to:
@@ -299,10 +299,10 @@ export default function CancellationPolicyPage() {
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:support@divyaarth.com" 
+                    href="mailto:support@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline"
                   >
-                    support@divyaarth.com
+                    support@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">

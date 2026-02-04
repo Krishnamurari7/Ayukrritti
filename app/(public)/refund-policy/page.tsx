@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Refund Policy | Divyaarth",
-  description: "Understand our refund policy for Divyaarth products. Learn about refund eligibility, process, and timelines.",
+  title: "Refund Policy | Ayukrriti Ayurveda",
+  description: "Understand our refund policy for Ayukrriti Ayurveda products. Learn about refund eligibility, process, and timelines.",
 };
 
 export default function RefundPolicyPage() {
@@ -31,7 +31,7 @@ export default function RefundPolicyPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                At Divyaarth, we strive to ensure complete customer satisfaction with our Ayurvedic products. If you&apos;re not satisfied with your purchase, we&apos;re here to help.
+                At Ayukrriti Ayurveda, we strive to ensure complete customer satisfaction with our Ayurvedic products. If you&apos;re not satisfied with your purchase, we&apos;re here to help.
               </p>
               <p>
                 This Refund Policy outlines the conditions under which refunds are processed, the timeline, and the procedure to request a refund.
@@ -101,10 +101,10 @@ export default function RefundPolicyPage() {
                 <p className="text-gray-700 mb-2">
                   Email us at{" "}
                   <a 
-                    href="mailto:support@divyaarth.com" 
+                    href="mailto:support@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline font-medium"
                   >
-                    support@divyaarth.com
+                    support@ayukrriti.com
                   </a>
                   {" "}or call{" "}
                   <a 
@@ -229,10 +229,10 @@ export default function RefundPolicyPage() {
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:support@divyaarth.com" 
+                    href="mailto:support@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline"
                   >
-                    support@divyaarth.com
+                    support@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">

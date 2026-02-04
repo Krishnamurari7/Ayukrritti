@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Careers - Join Our Team | Divyaarth",
-  description: "Explore career opportunities at Divyaarth. Join us in our mission to provide natural Ayurvedic wellness solutions.",
+  title: "Careers - Join Our Team | Ayukrriti Ayurveda",
+  description: "Explore career opportunities at Ayukrriti Ayurveda. Join us in our mission to provide natural Ayurvedic wellness solutions.",
 };
 
 export default function CareersPage() {
@@ -12,7 +12,7 @@ export default function CareersPage() {
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Careers at Divyaarth</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Careers at Ayukrriti Ayurveda</h1>
           <p className="text-xl text-green-100 max-w-3xl">
             Join us in our mission to bring natural Ayurvedic wellness to people&apos;s lives
           </p>
@@ -24,10 +24,10 @@ export default function CareersPage() {
         <div className="max-w-4xl mx-auto">
           {/* Why Join Us Section */}
           <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Join Divyaarth?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Join Ayukrriti Ayurveda?</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                At Divyaarth, we&apos;re not just a company; we&apos;re a family dedicated to making a positive impact on people&apos;s health and wellbeing through authentic Ayurvedic products.
+                At Ayukrriti Ayurveda, we&apos;re not just a company; we&apos;re a family dedicated to making a positive impact on people&apos;s health and wellbeing through authentic Ayurvedic products.
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Work with a passionate team committed to natural wellness</li>
@@ -133,10 +133,10 @@ export default function CareersPage() {
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:careers@divyaarth.com" 
+                    href="mailto:careers@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline"
                   >
-                    careers@divyaarth.com
+                    careers@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-4">
@@ -166,10 +166,10 @@ export default function CareersPage() {
               <p className="mt-4">
                 Internships typically last 3-6 months and include a stipend. To apply, send your resume to{" "}
                 <a 
-                  href="mailto:internships@divyaarth.com" 
+                  href="mailto:internships@ayukrriti.com" 
                   className="text-green-600 hover:text-green-700 underline font-medium"
                 >
-                  internships@divyaarth.com
+                  internships@ayukrriti.com
                 </a>
               </p>
             </div>

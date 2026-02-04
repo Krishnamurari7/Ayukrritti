@@ -646,7 +646,7 @@ export default function AdminAboutPage() {
                     setHeroContent({ ...heroContent, description: e.target.value })
                   }
                   rows={4}
-                  placeholder="For over 25 years, Aarogya India has been dedicated..."
+                  placeholder="For over 25 years, Ayukrriti Ayurveda has been dedicated..."
                 />
               </div>
               <div className="space-y-2">
@@ -715,7 +715,7 @@ export default function AdminAboutPage() {
                     })
                   }
                   rows={8}
-                  placeholder="Aarogya India was founded in 1999...&#10;&#10;What started as a small clinic..."
+                  placeholder="Ayukrriti Ayurveda was founded in 1999...&#10;&#10;What started as a small clinic..."
                 />
               </div>
               <Button onClick={handleSaveStory} disabled={saving}>
@@ -1009,7 +1009,7 @@ export default function AdminAboutPage() {
                   <Input
                     value={centerForm.name}
                     onChange={(e) => setCenterForm({ ...centerForm, name: e.target.value })}
-                    placeholder="Aarogya India - Delhi Main Center"
+                    placeholder="Ayukrriti Ayurveda - Delhi Main Center"
                   />
                 </div>
                 <div className="space-y-2 col-span-2">

@@ -302,7 +302,7 @@ export default function CheckoutPage() {
           key: razorpayKeyId || process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
           amount: data.razorpayOrder.amount,
           currency: data.razorpayOrder.currency,
-          name: "TechStore",
+          name: "Ayukrriti Ayurveda",
           description: "Order Payment",
           order_id: data.razorpayOrder.id,
           handler: async function (response: any) {
@@ -373,8 +373,23 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-4 sm:py-6 md:py-8">
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 md:mb-8">Checkout</h1>
+    <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
+      {/* Hero Header */}
+      <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-10 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="inline-block mb-4">
+            <span className="inline-block px-5 py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-full text-sm font-bold shadow-lg">
+              🛒 Secure Checkout
+            </span>
+          </div>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">Complete Your Order</h1>
+        </div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-6 md:py-8">
 
       <form onSubmit={handleCheckout}>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -663,11 +678,13 @@ export default function CheckoutPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-24">
-              <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+            <Card className="sticky top-24 border-2 border-gray-100 hover:border-[#D4AF37] rounded-2xl shadow-xl overflow-hidden transition-colors">
+              <CardHeader className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white">
+                <CardTitle className="flex items-center gap-2">
+                  <span>🧾</span> Order Summary
+                </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-4 pt-6">
                 <div className="space-y-2 max-h-60 overflow-y-auto">
                   {cartItems.map((item) => (
                     <div key={item.id} className="flex gap-2">
@@ -716,14 +733,15 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full" disabled={loading}>
-                  {loading ? "Processing..." : "Place Order"}
+                <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white font-bold shadow-lg hover:shadow-xl transition-all h-14 rounded-xl text-lg" disabled={loading}>
+                  {loading ? "Processing..." : "Place Order 🎉"}
                 </Button>
               </CardContent>
             </Card>
           </div>
         </div>
       </form>
+      </div>
     </div>
   );
 }

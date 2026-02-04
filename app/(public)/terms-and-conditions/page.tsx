@@ -1,18 +1,27 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Divyaarth",
-  description: "Read the terms and conditions for using Divyaarth website and purchasing our Ayurvedic products.",
+  title: "Terms and Conditions | Ayukrriti Ayurveda",
+  description: "Read the terms and conditions for using Ayukrriti Ayurveda website and purchasing our Ayurvedic products.",
 };
 
 export default function TermsAndConditionsPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms and Conditions</h1>
-          <p className="text-xl text-green-100 max-w-3xl">
+      <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-16 md:py-20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="inline-block mb-4">
+            <span className="inline-block px-5 py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-full text-sm font-bold shadow-lg">
+              📜 Legal Information
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">Terms and Conditions</h1>
+          <p className="text-xl text-white/90 max-w-3xl leading-relaxed">
             Please read these terms carefully before using our services
           </p>
         </div>
@@ -27,11 +36,14 @@ export default function TermsAndConditionsPage() {
           </div>
 
           {/* Introduction */}
-          <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">1. Introduction</h2>
+          <section className="mb-12 bg-white rounded-2xl shadow-xl border-2 border-gray-100 hover:border-[#D4AF37] transition-colors p-8">
+            <h2 className="text-3xl font-bold text-[#1a8f4a] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-lg">1</span>
+              Introduction
+            </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Welcome to Divyaarth Ayurveda & Wellness Private Limited (&quot;Divyaarth,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our website www.divyaarth.com and the purchase of our products.
+                Welcome to Ayukrriti Ayurveda (&quot;Ayukrriti,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of our website www.ayukrriti.com and the purchase of our products.
               </p>
               <p>
                 By accessing or using our website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must not use our website or services.
@@ -180,7 +192,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">9. Intellectual Property Rights</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                All content on this website, including text, graphics, logos, images, videos, and software, is the property of Divyaarth or its licensors and is protected by copyright, trademark, and other intellectual property laws.
+                All content on this website, including text, graphics, logos, images, videos, and software, is the property of Ayukrriti Ayurveda or its licensors and is protected by copyright, trademark, and other intellectual property laws.
               </p>
               <p>
                 You may not:
@@ -219,7 +231,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">11. Limitation of Liability</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                To the maximum extent permitted by law, Divyaarth shall not be liable for:
+                To the maximum extent permitted by law, Ayukrriti Ayurveda shall not be liable for:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Any indirect, incidental, special, or consequential damages</li>
@@ -239,7 +251,7 @@ export default function TermsAndConditionsPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">12. Indemnification</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                You agree to indemnify and hold harmless Divyaarth, its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:
+                You agree to indemnify and hold harmless Ayukrriti Ayurveda, its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-4">
                 <li>Your violation of these Terms</li>
@@ -295,36 +307,39 @@ export default function TermsAndConditionsPage() {
           </section>
 
           {/* Contact Information */}
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">16. Contact Information</h2>
+          <section className="bg-white rounded-2xl shadow-xl border-2 border-gray-100 hover:border-[#D4AF37] transition-colors p-8">
+            <h2 className="text-3xl font-bold text-[#1a8f4a] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-lg">16</span>
+              Contact Information
+            </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
                 If you have any questions about these Terms and Conditions, please contact us:
               </p>
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <p className="text-gray-900 font-semibold mb-3">
-                  Divyaarth Ayurveda & Wellness Private Limited
+              <div className="bg-gradient-to-br from-[#F4E4B7] to-white border-2 border-[#D4AF37] rounded-2xl p-8">
+                <p className="text-[#1a8f4a] font-bold text-xl mb-4">
+                  Ayukrriti Ayurveda
                 </p>
-                <p className="text-gray-700 mb-2">
-                  <span className="font-medium">Email:</span>{" "}
+                <p className="text-gray-700 mb-3">
+                  <span className="font-semibold">📧 Email:</span>{" "}
                   <a 
-                    href="mailto:support@divyaarth.com" 
-                    className="text-green-600 hover:text-green-700 underline"
+                    href="mailto:support@ayukrriti.com" 
+                    className="text-[#D4AF37] hover:text-[#B8941F] font-semibold underline"
                   >
-                    support@divyaarth.com
+                    support@ayukrriti.com
                   </a>
                 </p>
-                <p className="text-gray-700 mb-2">
-                  <span className="font-medium">Phone:</span>{" "}
+                <p className="text-gray-700 mb-3">
+                  <span className="font-semibold">📞 Phone:</span>{" "}
                   <a 
                     href="tel:+919220229066" 
-                    className="text-green-600 hover:text-green-700 underline"
+                    className="text-[#D4AF37] hover:text-[#B8941F] font-semibold underline"
                   >
                     +91-9220229066
                   </a>
                 </p>
                 <p className="text-gray-700">
-                  <span className="font-medium">Address:</span> C-56/11, Sector-62, Noida, Uttar Pradesh, India
+                  <span className="font-semibold">📍 Address:</span> C-56/11, Sector-62, Noida, Uttar Pradesh, India
                 </p>
               </div>
             </div>

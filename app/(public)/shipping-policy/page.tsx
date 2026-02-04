@@ -1,18 +1,27 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Shipping Policy | Divyaarth",
-  description: "Learn about our shipping process, delivery times, and shipping charges for Divyaarth products across India.",
+  title: "Shipping Policy | Ayukrriti Ayurveda",
+  description: "Learn about our shipping process, delivery times, and shipping charges for Ayukrriti Ayurveda products across India.",
 };
 
 export default function ShippingPolicyPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-green-800 to-green-600 text-white py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Shipping Policy</h1>
-          <p className="text-xl text-green-100 max-w-3xl">
+      <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-16 md:py-20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="inline-block mb-4">
+            <span className="inline-block px-5 py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-full text-sm font-bold shadow-lg">
+              🚚 Delivery Information
+            </span>
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">Shipping Policy</h1>
+          <p className="text-xl text-white/90 max-w-3xl leading-relaxed">
             Fast and reliable delivery of Ayurvedic wellness products to your doorstep
           </p>
         </div>
@@ -27,11 +36,14 @@ export default function ShippingPolicyPage() {
           </div>
 
           {/* Overview */}
-          <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Overview</h2>
+          <section className="mb-12 bg-white rounded-2xl shadow-xl border-2 border-gray-100 hover:border-[#D4AF37] transition-colors p-8">
+            <h2 className="text-3xl font-bold text-[#1a8f4a] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-lg">📋</span>
+              Overview
+            </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                At Divyaarth, we are committed to delivering your orders quickly and safely. This Shipping Policy outlines our shipping process, delivery timelines, and charges.
+                At Ayukrriti Ayurveda, we are committed to delivering your orders quickly and safely. This Shipping Policy outlines our shipping process, delivery timelines, and charges.
               </p>
               <p>
                 We currently ship to all serviceable locations across India through trusted courier partners.
@@ -40,21 +52,24 @@ export default function ShippingPolicyPage() {
           </section>
 
           {/* Shipping Coverage */}
-          <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Shipping Coverage</h2>
+          <section className="mb-12 bg-white rounded-2xl shadow-xl border-2 border-gray-100 hover:border-[#D4AF37] transition-colors p-8">
+            <h2 className="text-3xl font-bold text-[#1a8f4a] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-lg">🌍</span>
+              Shipping Coverage
+            </h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
-              <div className="bg-green-50 border-l-4 border-green-600 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  Domestic Shipping (India)
+              <div className="bg-gradient-to-r from-[#F4E4B7]/50 to-white border-l-4 border-[#D4AF37] p-6 rounded-r-xl">
+                <h3 className="text-lg font-bold text-[#1a8f4a] mb-2">
+                  🇮🇳 Domestic Shipping (India)
                 </h3>
                 <p className="text-gray-700">
                   We ship to all pin codes serviced by our courier partners across India, including metro cities, tier-2 cities, and remote areas.
                 </p>
               </div>
 
-              <div className="bg-gray-50 border-l-4 border-gray-400 p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  International Shipping
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-6 rounded-r-xl">
+                <h3 className="text-lg font-bold text-gray-700 mb-2">
+                  🌐 International Shipping
                 </h3>
                 <p className="text-gray-700">
                   Currently, we do not offer international shipping. We are working on expanding our services globally. Stay tuned!
@@ -113,15 +128,18 @@ export default function ShippingPolicyPage() {
           </section>
 
           {/* Shipping Charges */}
-          <section className="mb-12 bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Shipping Charges</h2>
+          <section className="mb-12 bg-white rounded-2xl shadow-xl border-2 border-gray-100 hover:border-[#D4AF37] transition-colors p-8">
+            <h2 className="text-3xl font-bold text-[#1a8f4a] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center text-white text-lg">💰</span>
+              Shipping Charges
+            </h2>
             
             <div className="space-y-6">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                <h3 className="text-2xl font-semibold text-green-900 mb-3">
+              <div className="bg-gradient-to-br from-[#F4E4B7] to-white border-2 border-[#D4AF37] rounded-2xl p-8 text-center">
+                <h3 className="text-3xl font-bold text-[#1a8f4a] mb-3">
                   🎉 Free Shipping on Orders Above ₹499
                 </h3>
-                <p className="text-gray-700">
+                <p className="text-gray-700 text-lg">
                   Enjoy free delivery across India on all orders totaling ₹499 or more!
                 </p>
               </div>
@@ -278,17 +296,17 @@ export default function ShippingPolicyPage() {
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:support@divyaarth.com" 
-                    className="text-green-600 hover:text-green-700 underline"
+                    href="mailto:support@ayukrriti.com" 
+                    className="text-[#D4AF37] hover:text-[#B8941F] underline font-semibold"
                   >
-                    support@divyaarth.com
+                    support@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Phone:</span>{" "}
                   <a 
                     href="tel:+919220229066" 
-                    className="text-green-600 hover:text-green-700 underline"
+                    className="text-[#D4AF37] hover:text-[#B8941F] underline font-semibold"
                   >
                     +91-9220229066
                   </a>

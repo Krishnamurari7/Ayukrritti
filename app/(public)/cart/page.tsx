@@ -34,15 +34,21 @@ export default function CartPage() {
   // Not logged in state
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50">
+      <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-700 via-green-600 to-emerald-700 text-white py-12">
-          <div className="container mx-auto px-4">
+        <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-14 relative overflow-hidden">
+          {/* Decorative Elements */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-3 mb-2">
-              <ShoppingBag className="w-8 h-8" />
-              <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
+              <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shadow-lg">
+                <ShoppingBag className="w-6 h-6" />
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">Shopping Cart</h1>
             </div>
-            <p className="text-green-100">Your wellness journey awaits</p>
+            <p className="text-white/90 text-lg mt-2">Your wellness journey awaits ✨</p>
           </div>
         </div>
 
@@ -56,14 +62,14 @@ export default function CartPage() {
               Sign in to access your saved items and continue shopping for authentic Ayurvedic products.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
+              <Button asChild size="lg" className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white font-bold shadow-lg hover:shadow-xl transition-all rounded-xl h-12 px-8">
                 <Link href="/login?redirect=/cart">
                   Login to Continue
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-green-600 text-green-700 hover:bg-green-50">
-                <Link href="/signup">Create Account</Link>
+              <Button asChild size="lg" variant="outline" className="border-2 border-[#D4AF37] text-[#D4AF37] hover:bg-[#F4E4B7] font-bold rounded-xl h-12">
+                <Link href="/signup">Create Account 🌟</Link>
               </Button>
             </div>
           </div>
@@ -75,15 +81,18 @@ export default function CartPage() {
   // Loading state
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50">
+      <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-700 via-green-600 to-emerald-700 text-white py-12">
-          <div className="container mx-auto px-4">
+        <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-14 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-3 mb-2">
-              <ShoppingBag className="w-8 h-8" />
-              <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
+              <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shadow-lg">
+                <ShoppingBag className="w-6 h-6" />
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">Shopping Cart</h1>
             </div>
-            <p className="text-green-100">Loading your wellness essentials...</p>
+            <p className="text-white/90 text-lg mt-2">Loading your wellness essentials... ⏳</p>
           </div>
         </div>
         
@@ -125,15 +134,18 @@ export default function CartPage() {
   // Empty cart state
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50">
+      <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
         {/* Header */}
-        <div className="bg-gradient-to-r from-green-700 via-green-600 to-emerald-700 text-white py-12">
-          <div className="container mx-auto px-4">
+        <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-14 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="flex items-center gap-3 mb-2">
-              <ShoppingBag className="w-8 h-8" />
-              <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
+              <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shadow-lg">
+                <ShoppingBag className="w-6 h-6" />
+              </div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">Shopping Cart</h1>
             </div>
-            <p className="text-green-100">Your cart is waiting to be filled</p>
+            <p className="text-white/90 text-lg mt-2">Your cart is waiting to be filled 🛍️</p>
           </div>
         </div>
 
@@ -155,10 +167,10 @@ export default function CartPage() {
               Discover the healing power of Ayurveda. Browse our collection of natural wellness products.
             </p>
             
-            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700 shadow-lg hover:shadow-xl transition-all">
+            <Button asChild size="lg" className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white shadow-lg hover:shadow-xl transition-all font-bold rounded-xl h-12 px-8">
               <Link href="/products">
                 <Package className="mr-2 w-5 h-5" />
-                Explore Products
+                Explore Products 🌿
               </Link>
             </Button>
 
@@ -190,24 +202,30 @@ export default function CartPage() {
   const freeShippingProgress = Math.min((subtotal / freeShippingThreshold) * 100, 100);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
       {/* Header with gradient */}
-      <div className="bg-gradient-to-r from-green-700 via-green-600 to-emerald-700 text-white py-12">
-        <div className="container mx-auto px-4">
+      <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-14 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <div className="flex items-center justify-between">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <ShoppingBag className="w-8 h-8" />
-                <h1 className="text-3xl md:text-4xl font-bold">Shopping Cart</h1>
+                <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] rounded-full flex items-center justify-center shadow-lg">
+                  <ShoppingBag className="w-6 h-6" />
+                </div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-lg">Shopping Cart</h1>
               </div>
-              <p className="text-green-100">
-                {itemCount} {itemCount === 1 ? 'item' : 'items'} in your cart
+              <p className="text-white/90 text-lg mt-2">
+                {itemCount} {itemCount === 1 ? 'item' : 'items'} in your cart ✨
               </p>
             </div>
             <Button 
               asChild 
               variant="outline" 
-              className="hidden sm:flex border-white/30 text-white hover:bg-white/10 bg-white/5"
+              className="hidden sm:flex border-[#D4AF37] text-white hover:bg-[#D4AF37]/20 bg-white/10 rounded-xl font-semibold"
             >
               <Link href="/products">
                 <Package className="mr-2 w-4 h-4" />
@@ -384,8 +402,8 @@ export default function CartPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
               {/* Summary Card */}
-              <Card className="border-0 shadow-xl rounded-2xl overflow-hidden">
-                <div className="bg-gradient-to-r from-green-600 to-emerald-600 p-5">
+              <Card className="border-2 border-gray-100 hover:border-[#D4AF37] shadow-xl rounded-3xl overflow-hidden transition-colors">
+                <div className="bg-gradient-to-r from-[#D4AF37] to-[#B8941F] p-6">
                   <h2 className="text-xl font-bold text-white flex items-center gap-2">
                     <ShoppingBag className="w-5 h-5" />
                     Order Summary
@@ -441,7 +459,7 @@ export default function CartPage() {
 
                   <div className="mt-6 space-y-3">
                     <Button
-                      className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all h-12 text-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] text-white shadow-lg hover:shadow-xl transition-all h-14 text-lg font-bold disabled:opacity-50 disabled:cursor-not-allowed rounded-xl"
                       onClick={() => {
                         if (!cartItems || cartItems.length === 0) {
                           return;
@@ -450,7 +468,7 @@ export default function CartPage() {
                       }}
                       disabled={!cartItems || cartItems.length === 0 || isLoading}
                     >
-                      Proceed to Checkout
+                      Proceed to Checkout 🛒
                       <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
 

@@ -33,7 +33,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${(blog as any).title} - Aarogya India Blog`,
+    title: `${(blog as any).title} - Ayukrriti Ayurveda Blog`,
     description: (blog as any).excerpt || (blog as any).title,
     openGraph: {
       title: (blog as any).title,

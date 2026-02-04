@@ -28,7 +28,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    details: ["support@aarogyaindia.com", "info@aarogyaindia.com"],
+    details: ["support@ayukrriti.com", "info@ayukrriti.com"],
     color: "bg-blue-100 text-blue-600",
   },
   {
@@ -110,20 +110,24 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50/50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#F4E4B7]/30 via-white to-white">
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-[#1a8f4a] to-[#2d5a27] text-white py-12 md:py-16">
-        <div className="container mx-auto px-4 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full mb-4">
+      <div className="bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white py-16 md:py-20 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[#D4AF37]/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+        
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] px-5 py-2.5 rounded-full mb-6 shadow-lg">
             <Headphones className="h-5 w-5" />
-            <span className="text-sm">24/7 Customer Support</span>
+            <span className="font-semibold">24/7 Customer Support</span>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
             Get in Touch With Us
           </h1>
-          <p className="text-green-100 text-lg max-w-2xl mx-auto">
+          <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             Have questions about our products or need expert Ayurvedic advice?
-            We're here to help you on your wellness journey.
+            We&apos;re here to help you on your wellness journey.
           </p>
         </div>
       </div>
@@ -134,19 +138,19 @@ export default function ContactPage() {
           {contactInfo.map((info, index) => (
             <Card
               key={index}
-              className="bg-white shadow-lg hover:shadow-xl transition-shadow"
+              className="bg-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-gray-100 hover:border-[#D4AF37] rounded-2xl"
             >
-              <CardContent className="p-5 text-center">
+              <CardContent className="p-6 text-center">
                 <div
-                  className={`w-14 h-14 mx-auto mb-4 rounded-full ${info.color} flex items-center justify-center`}
+                  className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#B8941F] flex items-center justify-center shadow-lg"
                 >
-                  <info.icon className="h-6 w-6" />
+                  <info.icon className="h-7 w-7 text-white" />
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-2">
+                <h3 className="font-bold text-gray-900 mb-3 text-lg">
                   {info.title}
                 </h3>
                 {info.details.map((detail, i) => (
-                  <p key={i} className="text-sm text-muted-foreground">
+                  <p key={i} className="text-sm text-gray-600">
                     {detail}
                   </p>
                 ))}
@@ -238,7 +242,7 @@ export default function ContactPage() {
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#1a8f4a] hover:bg-[#157a3d] h-12 text-base"
+                  className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8941F] hover:from-[#B8941F] hover:to-[#D4AF37] h-12 text-base font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                   disabled={loading}
                 >
                   {loading ? (
@@ -301,22 +305,27 @@ export default function ContactPage() {
             </div>
 
             {/* Quick Contact */}
-            <Card className="mt-6 bg-gradient-to-r from-[#1a8f4a] to-[#2d5a27] text-white">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-3">
-                  Need Immediate Help?
-                </h3>
-                <p className="text-green-100 text-sm mb-4">
-                  Call our toll-free helpline for instant support from our
-                  wellness experts.
-                </p>
-                <a
-                  href="tel:18001234567"
-                  className="inline-flex items-center gap-2 bg-white text-[#1a8f4a] px-4 py-2 rounded-lg font-semibold hover:bg-green-50 transition-colors"
-                >
-                  <Phone className="h-5 w-5" />
-                  1800 123 4567
-                </a>
+            <Card className="mt-6 bg-gradient-to-br from-[#1a8f4a] via-green-800 to-[#D4AF37] text-white border-0 rounded-2xl shadow-xl overflow-hidden">
+              <CardContent className="p-7 relative">
+                {/* Decorative Element */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-2xl"></div>
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold mb-3">
+                    Need Immediate Help? 📞
+                  </h3>
+                  <p className="text-white/90 text-sm mb-5 leading-relaxed">
+                    Call our toll-free helpline for instant support from our
+                    wellness experts.
+                  </p>
+                  <a
+                    href="tel:18001234567"
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white px-6 py-3 rounded-xl font-bold hover:from-[#B8941F] hover:to-[#D4AF37] transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <Phone className="h-5 w-5" />
+                    1800 123 4567
+                  </a>
+                </div>
               </CardContent>
             </Card>
           </div>
@@ -335,7 +344,7 @@ export default function ContactPage() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Aarogya India Location"
+                title="Ayukrriti Ayurveda Location"
               />
             </div>
           </Card>

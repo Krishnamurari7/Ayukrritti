@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Divyaarth",
-  description: "Learn how Divyaarth collects, uses, and protects your personal information. Our commitment to your privacy.",
+  title: "Privacy Policy | Ayukrriti Ayurveda",
+  description: "Learn how Ayukrriti Ayurveda collects, uses, and protects your personal information. Our commitment to your privacy.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -31,10 +31,10 @@ export default function PrivacyPolicyPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Introduction</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Welcome to Divyaarth Ayurveda & Wellness Private Limited (&quot;Divyaarth,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). We are committed to protecting your personal information and your right to privacy.
+                Welcome to Ayukrriti Ayurveda Ayurveda & Wellness Private Limited (&quot;Ayukrriti Ayurveda,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). We are committed to protecting your personal information and your right to privacy.
               </p>
               <p>
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website www.divyaarth.com and use our services.
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website www.ayukrriti.com and use our services.
               </p>
               <p>
                 By using our website and services, you agree to the collection and use of information in accordance with this Privacy Policy.
@@ -208,10 +208,10 @@ export default function PrivacyPolicyPage() {
               <p className="mt-4">
                 To exercise these rights, contact us at{" "}
                 <a 
-                  href="mailto:privacy@divyaarth.com" 
+                  href="mailto:privacy@ayukrriti.com" 
                   className="text-green-600 hover:text-green-700 underline font-medium"
                 >
-                  privacy@divyaarth.com
+                  privacy@ayukrriti.com
                 </a>
               </p>
             </div>
@@ -272,15 +272,15 @@ export default function PrivacyPolicyPage() {
               </p>
               <div className="bg-green-50 border border-green-200 rounded-lg p-6">
                 <p className="text-gray-900 font-semibold mb-3">
-                  Divyaarth Ayurveda & Wellness Private Limited
+                  Ayukrriti Ayurveda Ayurveda & Wellness Private Limited
                 </p>
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:privacy@divyaarth.com" 
+                    href="mailto:privacy@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline"
                   >
-                    privacy@divyaarth.com
+                    privacy@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">

@@ -36,14 +36,14 @@ export async function generateMetadata({
 
   if (!productData) {
     return {
-      title: "Product Not Found - Aarogya India",
+      title: "Product Not Found - Ayukrriti Ayurveda",
     };
   }
 
   const product = productData as any;
 
   return {
-    title: `${product.name} - Aarogya India`,
+    title: `${product.name} - Ayukrriti Ayurveda`,
     description: product.description?.substring(0, 160),
     openGraph: {
       title: product.name,
@@ -412,7 +412,7 @@ export default async function ProductDetailPage({
               sku: product.sku,
               brand: {
                 "@type": "Brand",
-                name: "Aarogya India",
+                name: "Ayukrriti Ayurveda",
               },
               offers: {
                 "@type": "Offer",

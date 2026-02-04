@@ -132,7 +132,7 @@ export function Header() {
       )}
     >
       {/* Top Promotional Banner */}
-      <div className="bg-[#1a8f4a] text-white py-2 px-2">
+      <div className="bg-gradient-to-r from-[#1a8f4a] via-[#D4AF37] to-[#1a8f4a] text-white py-2 px-2">
         <div className="container mx-auto">
           <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-10 lg:gap-12 flex-wrap text-xs sm:text-sm">
             {promoItems.map((item, index) => (
@@ -152,16 +152,16 @@ export function Header() {
       </div>
 
       {/* Main Header */}
-      <div className="bg-white border-b py-2 sm:py-3">
+      <div className="bg-white border-b-2 border-[#D4AF37] py-3 sm:py-4 shadow-sm">
         <div className="container mx-auto px-3 sm:px-4">
           <div className="flex items-center justify-between gap-2 sm:gap-4">
             {/* Logo */}
-            <Link href="/" className="flex items-center shrink-0">
-              <div className="flex items-center">
-                <span className="text-[#1a8f4a] text-xl sm:text-2xl md:text-3xl font-bold tracking-wide">
-                  AYUKRITI
+            <Link href="/" className="flex items-center shrink-0 group">
+              <div className="flex items-center transition-transform duration-300 group-hover:scale-105">
+                <span className="text-[#1a8f4a] text-xl sm:text-2xl md:text-3xl font-bold tracking-wide drop-shadow-sm">
+                  AYUKRRITI
                 </span>
-                <span className="text-[#1a8f4a] text-xl sm:text-2xl md:text-3xl font-bold ml-1 sm:ml-2">
+                <span className="text-[#D4AF37] text-xl sm:text-2xl md:text-3xl font-bold ml-1 sm:ml-2 drop-shadow-sm">
                   AYURVEDA
                 </span>
               </div>
@@ -182,7 +182,7 @@ export function Header() {
                 />
                 <Button
                   type="submit"
-                  className="rounded-l-none bg-[#1a8f4a] hover:bg-[#157a3d] px-4 lg:px-6 h-10 lg:h-11"
+                  className="rounded-l-none bg-gradient-to-r from-[#1a8f4a] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#1a8f4a] px-4 lg:px-6 h-10 lg:h-11 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <Search className="h-4 w-4 lg:h-5 lg:w-5" />
                 </Button>
@@ -206,7 +206,7 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="relative bg-[#1a8f4a] hover:bg-[#157a3d] rounded-full h-9 w-9 sm:h-10 sm:w-10"
+                  className="relative bg-gradient-to-br from-[#1a8f4a] to-[#157a3d] hover:from-[#157a3d] hover:to-[#1a8f4a] rounded-full h-9 w-9 sm:h-10 sm:w-10 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </Button>
@@ -217,10 +217,10 @@ export function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="relative bg-[#1a8f4a] hover:bg-[#157a3d] rounded-full h-9 w-9 sm:h-10 sm:w-10"
+                  className="relative bg-gradient-to-br from-[#1a8f4a] to-[#157a3d] hover:from-[#157a3d] hover:to-[#1a8f4a] rounded-full h-9 w-9 sm:h-10 sm:w-10 shadow-md hover:shadow-lg transition-all duration-300"
                 >
                   <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                  <span className="absolute -top-1 -right-1 bg-yellow-400 text-black text-[10px] sm:text-xs font-bold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-gradient-to-br from-[#D4AF37] to-[#B8941F] text-white text-[10px] sm:text-xs font-bold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center shadow-md animate-pulse">
                     {itemCount}
                   </span>
                 </Button>
@@ -233,7 +233,7 @@ export function Header() {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="bg-[#1a8f4a] hover:bg-[#157a3d] rounded-full h-9 w-9 sm:h-10 sm:w-10"
+                      className="bg-gradient-to-br from-[#1a8f4a] to-[#157a3d] hover:from-[#157a3d] hover:to-[#1a8f4a] rounded-full h-9 w-9 sm:h-10 sm:w-10 shadow-md hover:shadow-lg transition-all duration-300"
                     >
                       <User className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </Button>
@@ -278,7 +278,7 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="bg-[#1a8f4a] hover:bg-[#157a3d] rounded-full h-9 w-9 sm:h-10 sm:w-10 flex items-center"
+                    className="bg-gradient-to-br from-[#1a8f4a] to-[#157a3d] hover:from-[#157a3d] hover:to-[#1a8f4a] rounded-full h-9 w-9 sm:h-10 sm:w-10 flex items-center shadow-md hover:shadow-lg transition-all duration-300"
                   >
                     <User className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     <ChevronDown className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-white" />
@@ -320,7 +320,7 @@ export function Header() {
                 />
                 <Button
                   type="submit"
-                  className="rounded-l-none bg-[#1a8f4a] hover:bg-[#157a3d] px-4 h-10"
+                  className="rounded-l-none bg-gradient-to-r from-[#1a8f4a] to-[#D4AF37] hover:from-[#D4AF37] hover:to-[#1a8f4a] px-4 h-10 shadow-md"
                 >
                   <Search className="h-4 w-4" />
                 </Button>

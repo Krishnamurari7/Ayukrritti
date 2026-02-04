@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Product Authenticity | Divyaarth",
-  description: "Learn how to verify the authenticity of Divyaarth products. We ensure 100% genuine Ayurvedic products with quality certifications.",
+  title: "Product Authenticity | Ayukrriti Ayurveda",
+  description: "Learn how to verify the authenticity of Ayukrriti Ayurveda products. We ensure 100% genuine Ayurvedic products with quality certifications.",
 };
 
 export default function AuthenticityPage() {
@@ -27,10 +27,10 @@ export default function AuthenticityPage() {
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Commitment to Authenticity</h2>
             <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                At Divyaarth, we understand that your health and wellbeing depend on the quality and authenticity of the products you consume. That&apos;s why we are committed to providing only 100% genuine, certified Ayurvedic products.
+                At Ayukrriti Ayurveda, we understand that your health and wellbeing depend on the quality and authenticity of the products you consume. That&apos;s why we are committed to providing only 100% genuine, certified Ayurvedic products.
               </p>
               <p>
-                Every product that carries the Divyaarth name has undergone rigorous quality checks and meets the highest standards of Ayurvedic medicine manufacturing.
+                Every product that carries the Ayukrriti Ayurveda name has undergone rigorous quality checks and meets the highest standards of Ayurvedic medicine manufacturing.
               </p>
             </div>
           </section>
@@ -87,7 +87,7 @@ export default function AuthenticityPage() {
                   Step 1: Check the Security Seal
                 </h3>
                 <p className="text-gray-700">
-                  Every Divyaarth product comes with a tamper-proof security seal. If the seal is broken or missing, do not use the product.
+                  Every Ayukrriti Ayurveda product comes with a tamper-proof security seal. If the seal is broken or missing, do not use the product.
                 </p>
               </div>
 
@@ -144,10 +144,10 @@ export default function AuthenticityPage() {
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
                 <p className="text-gray-900 font-semibold mb-3">⚠️ Important Notice</p>
                 <p className="text-gray-700 mb-3">
-                  To ensure you receive genuine Divyaarth products, please purchase only from:
+                  To ensure you receive genuine Ayukrriti Ayurveda products, please purchase only from:
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Our official website: www.divyaarth.com</li>
+                  <li>Our official website: www.ayukrriti.com</li>
                   <li>Authorized retail stores (check our Store Locator)</li>
                   <li>Verified online marketplaces with &quot;Official Store&quot; badge</li>
                 </ul>
@@ -170,10 +170,10 @@ export default function AuthenticityPage() {
                 <p className="text-gray-700 mb-2">
                   <span className="font-medium">Email:</span>{" "}
                   <a 
-                    href="mailto:authenticity@divyaarth.com" 
+                    href="mailto:authenticity@ayukrriti.com" 
                     className="text-green-600 hover:text-green-700 underline"
                   >
-                    authenticity@divyaarth.com
+                    authenticity@ayukrriti.com
                   </a>
                 </p>
                 <p className="text-gray-700 mb-2">
