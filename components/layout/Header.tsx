@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -157,13 +158,15 @@ export function Header() {
           <div className="flex items-center justify-between gap-2 sm:gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0 group">
-              <div className="flex items-center transition-transform duration-300 group-hover:scale-105">
-                <span className="text-[#1a8f4a] text-xl sm:text-2xl md:text-3xl font-bold tracking-wide drop-shadow-sm">
-                  AYUKRRITI
-                </span>
-                <span className="text-[#D4AF37] text-xl sm:text-2xl md:text-3xl font-bold ml-1 sm:ml-2 drop-shadow-sm">
-                  AYURVEDA
-                </span>
+              <div className="transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/logo.png"
+                  alt="Ayukrriti Ayurveda"
+                  width={180}
+                  height={60}
+                  className="h-12 sm:h-14 md:h-16 w-auto"
+                  priority
+                />
               </div>
             </Link>
 
