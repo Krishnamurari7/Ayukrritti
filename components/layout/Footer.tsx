@@ -52,7 +52,7 @@ export function Footer({ settings = {} }: FooterProps) {
                 alt="Ayukrriti Ayurveda" 
                 width={180} 
                 height={60}
-                className="h-14 w-auto bg-white rounded-lg p-2"
+                className="h-14 w-auto rounded-lg p-2"
               />
             </div>
             
