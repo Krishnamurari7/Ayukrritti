@@ -168,6 +168,13 @@ export function Header() {
                   priority
                 />
               </div>
+              <span className="text-[#1a8f4a] text-xl sm:text-2xl md:text-3xl font-bold tracking-wide">
+                  AYUKRITI
+                </span>
+                <span className="text-[#D4AF37] text-xl sm:text-2xl md:text-3xl font-bold ml-1 sm:ml-2">
+                  AYURVEDA
+                </span>
+              
             </Link>
 
             {/* Search Bar - Desktop & Tablet */}
