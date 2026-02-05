@@ -4,9 +4,9 @@ import { formatPrice, formatDate, generateOrderNumber, generateSlug } from "@/li
 describe("Utils", () => {
   describe("formatPrice", () => {
     it("should format price correctly", () => {
-      expect(formatPrice(999.99)).toBe("$999.99");
-      expect(formatPrice(1000)).toBe("$1,000.00");
-      expect(formatPrice(0)).toBe("$0.00");
+      expect(formatPrice(999.99)).toBe("₹999.99");
+      expect(formatPrice(1000)).toBe("₹1,000.00");
+      expect(formatPrice(0)).toBe("₹0.00");
     });
   });
 
