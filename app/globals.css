@@ -18,6 +18,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Custom breakpoints */
+  --breakpoint-xs: 375px;
 }
 
 /* Disable dark mode - keep light theme always */

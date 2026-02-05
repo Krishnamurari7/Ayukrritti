@@ -50,9 +50,9 @@ export function Footer({ settings = {} }: FooterProps) {
               <Image 
                 src="/logo.png" 
                 alt="Ayukrriti Ayurveda" 
-                width={180} 
+                width={100} 
                 height={60}
-                className="h-14 w-auto rounded-lg p-2"
+                className=" rounded-lg p-2"
               />
             </div>
             
