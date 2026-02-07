@@ -40,14 +40,22 @@ const iconMap: Record<string, any> = {
 const getIcon = (iconName: string) => iconMap[iconName] || Leaf;
 
 export default async function AboutPage() {
-  // Static content data
-  const heroContent = {
+  const supabase = await createClient();
+
+  // Fetch content sections (hero, story, cta)
+  const { data: contentData } = await supabase
+    .from("about_content")
+    .select("*")
+    .eq("is_active", true);
+
+  // Default content
+  let heroContent = {
     title: "Bringing Ancient Ayurvedic Wisdom to Modern Lives",
     description: "For over 25 years, Ayukrriti Ayurveda has been dedicated to providing authentic, high-quality Ayurvedic products and wellness solutions that promote holistic health.",
     features: ["100% Natural Products", "Expert Consultations", "Pan-India Delivery"],
   };
 
-  const storyContent = {
+  let storyContent = {
     title: "Our Story",
     image: "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&h=600&fit=crop",
     paragraphs: [
@@ -57,7 +65,7 @@ export default async function AboutPage() {
     ],
   };
 
-  const ctaContent = {
+  let ctaContent = {
     title: "Start Your Wellness Journey Today",
     description: "Experience the power of authentic Ayurveda. Book a free consultation with our experts or explore our range of natural products.",
     buttons: [
@@ -66,11 +74,72 @@ export default async function AboutPage() {
     ],
   };
 
-  const stats: Array<{ icon: any; value: string; label: string }> = [];
-  const values: Array<{ icon: any; title: string; description: string }> = [];
-  const centers: Array<any> = [];
-  const achievements: Array<any> = [];
-  const team: Array<any> = [];
+  // Parse content from database
+  if (contentData) {
+    contentData.forEach((item) => {
+      if (item.section_key === "hero" && item.content) {
+        heroContent = item.content;
+      } else if (item.section_key === "story" && item.content) {
+        storyContent = item.content;
+      } else if (item.section_key === "cta" && item.content) {
+        ctaContent = item.content;
+      }
+    });
+  }
+
+  // Fetch stats
+  const { data: statsData } = await supabase
+    .from("about_stats")
+    .select("*")
+    .eq("is_active", true)
+    .order("display_order");
+
+  const stats = (statsData || []).map((stat) => ({
+    ...stat,
+    icon: getIcon(stat.icon),
+  }));
+
+  // Fetch values
+  const { data: valuesData } = await supabase
+    .from("about_values")
+    .select("*")
+    .eq("is_active", true)
+    .order("display_order");
+
+  const values = (valuesData || []).map((value) => ({
+    ...value,
+    icon: getIcon(value.icon),
+  }));
+
+  // Fetch centers
+  const { data: centersData } = await supabase
+    .from("about_centers")
+    .select("*")
+    .eq("is_active", true)
+    .order("display_order");
+
+  const centers = centersData || [];
+
+  // Fetch achievements
+  const { data: achievementsData } = await supabase
+    .from("about_achievements")
+    .select("*")
+    .eq("is_active", true)
+    .order("display_order");
+
+  const achievements = (achievementsData || []).map((achievement) => ({
+    ...achievement,
+    icon: getIcon(achievement.icon),
+  }));
+
+  // Fetch team
+  const { data: teamData } = await supabase
+    .from("about_team")
+    .select("*")
+    .eq("is_active", true)
+    .order("display_order");
+
+  const team = teamData || [];
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -93,7 +162,7 @@ export default async function AboutPage() {
               {heroContent.description}
             </p>
             <div className="flex flex-wrap gap-4 md:gap-6">
-              {heroContent.features.map((feature: string, index: number) => (
+              {(heroContent.features || []).map((feature: string, index: number) => (
                 <div key={index} className="flex items-center gap-3 bg-white/15 backdrop-blur-sm px-5 py-3 rounded-full border border-white/30 hover:bg-white/25 transition-all duration-300 shadow-lg">
                   <CheckCircle className="h-6 w-6 text-[#D4AF37]" />
                   <span className="font-semibold">{feature}</span>
@@ -149,7 +218,7 @@ export default async function AboutPage() {
                 {storyContent.title}
               </h2>
               <div className="space-y-5 text-gray-700 text-base md:text-lg leading-relaxed">
-                {storyContent.paragraphs.map((paragraph: string, index: number) => (
+                {(storyContent.paragraphs || []).map((paragraph: string, index: number) => (
                   <p key={index} className="pl-4 border-l-4 border-[#D4AF37]">
                     {paragraph}
                   </p>
@@ -260,7 +329,7 @@ export default async function AboutPage() {
                       </div>
                     </div>
                     <div className="flex flex-wrap gap-2 mt-4">
-                      {center.services.map((service: string) => (
+                      {(center.services || []).map((service: string) => (
                         <span
                           key={service}
                           className="px-3 py-1.5 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white text-xs font-semibold rounded-full shadow-sm"
@@ -301,7 +370,7 @@ export default async function AboutPage() {
             <div className="space-y-12">
               {achievements.map((achievement, index) => (
                 <div
-                  key={achievement.year}
+                  key={achievement.id || index}
                   className={`relative flex items-center gap-4 md:gap-8 ${
                     index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
@@ -370,7 +439,7 @@ export default async function AboutPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {team.map((member) => (
               <Card
-                key={member.name}
+                key={member.id || member.name}
                 className="text-center hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 premium-card overflow-hidden group border-2 border-gray-100 hover:border-[#D4AF37] rounded-3xl"
               >
                 <div className="relative aspect-square overflow-hidden">
@@ -416,7 +485,7 @@ export default async function AboutPage() {
             {ctaContent.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            {ctaContent.buttons.map((button: any, index: number) => (
+            {(ctaContent.buttons || []).map((button: any, index: number) => (
               <a
                 key={index}
                 href={button.link}
