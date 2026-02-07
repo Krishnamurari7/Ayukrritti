@@ -268,11 +268,13 @@ export function BannerManagement({ initialBanners }: BannerManagementProps) {
 
               {/* Image Preview */}
               <div className="relative w-32 h-20 rounded overflow-hidden bg-muted flex-shrink-0">
-                <Image
+                <img
                   src={banner.image_url}
                   alt={banner.title}
-                  fill
-                  className="object-cover"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
               </div>
 
@@ -371,23 +373,42 @@ export function BannerManagement({ initialBanners }: BannerManagementProps) {
                 <Label htmlFor="image_url">Image URL *</Label>
                 <Input
                   id="image_url"
-                  type="url"
+                  type="text"
                   value={formData.image_url}
                   onChange={(e) =>
                     setFormData({ ...formData, image_url: e.target.value })
                   }
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="https://example.com/image.jpg (किसी भी URL का उपयोग करें)"
                   required
                 />
                 {formData.image_url && (
-                  <div className="relative w-full h-40 rounded border overflow-hidden">
-                    <Image
-                      src={formData.image_url}
-                      alt="Preview"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                  <>
+                    {formData.image_url.includes("photos.app.goo.gl") && (
+                      <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                        <br />
+                        1. Open the image in Google Photos
+                        <br />
+                        2. Right-click → "Copy image address" or "Open image in new tab"
+                        <br />
+                        3. Copy the direct URL (should end with .jpg, .png, etc.)
+                      </p>
+                    )}
+                    <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                      <img
+                        src={formData.image_url}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                          }
+                        }}
+                      />
+                    </div>
+                  </>
                 )}
               </div>
 

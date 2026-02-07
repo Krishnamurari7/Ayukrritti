@@ -101,6 +101,7 @@ export default async function BlogsPage() {
                         alt={featuredBlog.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
+                        unoptimized
                       />
                     ) : (
                       <div className="w-full h-full bg-gradient-to-br from-[#1a8f4a] via-green-600 to-[#D4AF37] flex items-center justify-center">

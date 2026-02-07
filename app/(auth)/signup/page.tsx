@@ -70,94 +70,94 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-4 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-emerald-950">
+    <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center p-3 sm:p-4 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 dark:from-gray-900 dark:via-gray-900 dark:to-emerald-950">
       <div className="absolute inset-0 bg-grid-gray-900/[0.04] dark:bg-grid-gray-100/[0.02] bg-[size:20px_20px]" />
       <Card className="w-full max-w-md relative shadow-2xl border-green-100 dark:border-emerald-900">
-        <CardHeader className="space-y-1 pb-6">
+        <CardHeader className="space-y-1 pb-4 sm:pb-6 px-4 sm:px-6 pt-4 sm:pt-6">
           <div className="flex items-center justify-center mb-2">
-            <div className="p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg">
-              <UserPlus className="w-6 h-6 text-white" />
+            <div className="p-2.5 sm:p-3 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-lg">
+              <UserPlus className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold text-center bg-gradient-to-br from-green-600 to-emerald-600 bg-clip-text text-transparent">
+          <CardTitle className="text-xl sm:text-2xl font-bold text-center bg-gradient-to-br from-green-600 to-emerald-600 bg-clip-text text-transparent">
             Create an Account
           </CardTitle>
-          <CardDescription className="text-center">
+          <CardDescription className="text-center text-sm sm:text-base">
             Sign up to start your journey with us
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSignup} className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="fullName" className="text-sm font-medium">
+        <CardContent className="px-4 sm:px-6 pb-4 sm:pb-6">
+          <form onSubmit={handleSignup} className="space-y-3 sm:space-y-4">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="fullName" className="text-xs sm:text-sm font-medium">
                 Full Name
               </Label>
               <div className="relative">
-                <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <User className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="fullName"
                   type="text"
                   placeholder="John Doe"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="pl-10 h-11"
+                  className="pl-10 h-10 sm:h-11 text-sm sm:text-base"
                   required
                   autoComplete="name"
                 />
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="email" className="text-sm font-medium">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="email" className="text-xs sm:text-sm font-medium">
                 Email Address
               </Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Mail className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="email"
                   type="email"
                   placeholder="you@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="pl-10 h-11"
+                  className="pl-10 h-10 sm:h-11 text-sm sm:text-base"
                   required
                   autoComplete="email"
                 />
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="phone" className="text-sm font-medium">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="phone" className="text-xs sm:text-sm font-medium">
                 Phone Number
               </Label>
               <div className="relative">
-                <Phone className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Phone className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="phone"
                   type="tel"
                   placeholder="+91 1234567890"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="pl-10 h-11"
+                  className="pl-10 h-10 sm:h-11 text-sm sm:text-base"
                   required
                   autoComplete="tel"
                 />
               </div>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-sm font-medium">
+            <div className="space-y-1.5 sm:space-y-2">
+              <Label htmlFor="password" className="text-xs sm:text-sm font-medium">
                 Password
               </Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Lock className="absolute left-3 top-2.5 sm:top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="At least 8 characters"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pl-10 pr-10 h-11"
+                  className="pl-10 pr-10 h-10 sm:h-11 text-sm sm:text-base"
                   required
                   minLength={8}
                   autoComplete="new-password"
@@ -165,7 +165,7 @@ export default function SignupPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-3 text-muted-foreground hover:text-foreground transition-colors"
+                  className="absolute right-3 top-2.5 sm:top-3 text-muted-foreground hover:text-foreground transition-colors"
                   tabIndex={-1}
                 >
                   {showPassword ? (
@@ -181,7 +181,7 @@ export default function SignupPage() {
                     {[...Array(5)].map((_, i) => (
                       <div
                         key={i}
-                        className={`h-1.5 flex-1 rounded-full transition-all ${
+                        className={`h-1 sm:h-1.5 flex-1 rounded-full transition-all ${
                           i < passwordStrength
                             ? strengthColors[passwordStrength - 1]
                             : "bg-gray-200 dark:bg-gray-700"
@@ -190,7 +190,7 @@ export default function SignupPage() {
                     ))}
                   </div>
                   {passwordStrength > 0 && (
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-[10px] sm:text-xs text-muted-foreground">
                       Password strength: <span className="font-medium">{strengthLabels[passwordStrength - 1]}</span>
                     </p>
                   )}
@@ -200,7 +200,7 @@ export default function SignupPage() {
 
             <Button
               type="submit"
-              className="w-full h-11 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
+              className="w-full h-10 sm:h-11 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-200 text-sm sm:text-base"
               disabled={loading}
             >
               {loading ? (
@@ -218,13 +218,13 @@ export default function SignupPage() {
                 <span className="w-full border-t" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-background px-2 text-muted-foreground">
+                <span className="bg-background px-2 text-muted-foreground text-[10px] sm:text-xs">
                   Already have an account?
                 </span>
               </div>
             </div>
 
-            <p className="text-center text-sm">
+            <p className="text-center text-xs sm:text-sm">
               <Link
                 href="/login"
                 className="text-emerald-600 hover:text-emerald-700 dark:text-emerald-500 dark:hover:text-emerald-400 font-semibold transition-colors hover:underline"

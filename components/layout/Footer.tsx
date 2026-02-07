@@ -48,7 +48,7 @@ export function Footer({ settings = {} }: FooterProps) {
             {/* Logo */}
             <div className="flex items-center gap-2">
               <Image 
-                src="/logo.png" 
+                src="/bglogo.png" 
                 alt="Ayukrriti Ayurveda" 
                 width={100} 
                 height={60}

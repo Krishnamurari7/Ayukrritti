@@ -322,6 +322,7 @@ export default function AdminBlogsPage() {
                         alt={blog.title}
                         fill
                         className="object-cover"
+                        unoptimized
                       />
                     </div>
                   )}
@@ -481,8 +482,37 @@ export default function AdminBlogsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, featured_image: e.target.value })
                   }
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="https://example.com/image.jpg (Direct image URL required)"
                 />
+                {formData.featured_image && (
+                  <>
+                    {formData.featured_image.includes("photos.app.goo.gl") && (
+                      <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                        <br />
+                        1. Open the image in Google Photos
+                        <br />
+                        2. Right-click → "Copy image address" or "Open image in new tab"
+                        <br />
+                        3. Copy the direct URL (should end with .jpg, .png, etc.)
+                      </p>
+                    )}
+                    <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                      <img
+                        src={formData.featured_image}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                          }
+                        }}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
               <div>
                 <Label htmlFor="author_name">Author Name *</Label>
@@ -504,8 +534,37 @@ export default function AdminBlogsPage() {
                   onChange={(e) =>
                     setFormData({ ...formData, author_avatar: e.target.value })
                   }
-                  placeholder="https://example.com/avatar.jpg"
+                  placeholder="https://example.com/avatar.jpg (Direct image URL required)"
                 />
+                {formData.author_avatar && (
+                  <>
+                    {formData.author_avatar.includes("photos.app.goo.gl") && (
+                      <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                        <br />
+                        1. Open the image in Google Photos
+                        <br />
+                        2. Right-click → "Copy image address" or "Open image in new tab"
+                        <br />
+                        3. Copy the direct URL (should end with .jpg, .png, etc.)
+                      </p>
+                    )}
+                    <div className="relative w-24 h-24 rounded-full border overflow-hidden bg-muted mt-2">
+                      <img
+                        src={formData.author_avatar}
+                        alt="Avatar Preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-xs">Image failed to load</div>';
+                          }
+                        }}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
               <div>
                 <Label htmlFor="category">Category</Label>

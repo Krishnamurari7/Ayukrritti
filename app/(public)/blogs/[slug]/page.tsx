@@ -133,6 +133,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 fill
                 className="object-cover"
                 priority
+                unoptimized
               />
             </div>
           )}

@@ -192,22 +192,22 @@ export function Header() {
           <div className="flex items-center justify-between gap-1 sm:gap-2 md:gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0 group min-w-0">
-              <div className="transition-transform duration-300 group-hover:scale-105 shrink-0">
+              <div className="transition-all duration-300 group-hover:scale-105 shrink-0">
                 <Image
                   src="/logo.png"
                   alt="Ayukrriti Ayurveda"
                   width={180}
                   height={60}
-                  className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto"
+                  className="h-10 sm:h-12 md:h-14 lg:h-16 w-auto transition-all duration-300 group-hover:drop-shadow-lg"
                   priority
                 />
               </div>
               {/* Hide text on very small screens, show abbreviated on small, full on medium+ */}
               <div className="hidden xs:flex flex-col sm:flex-row sm:items-baseline ml-1 sm:ml-2 min-w-0">
-                <span className="text-[#1a8f4a] text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold tracking-wide leading-tight truncate">
+                <span className="text-[#D4AF37] text-sm sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold tracking-wide leading-tight truncate transition-colors duration-300 group-hover:text-[#B8941F]">
                   AYUKRRITI
                 </span>
-                <span className="text-[#D4AF37] text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold sm:ml-1 md:ml-2 leading-tight truncate">
+                <span className="text-[#1a8f4a] text-xs sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold sm:ml-1 md:ml-2 leading-tight truncate transition-colors duration-300 group-hover:text-[#157a3d]">
                   AYURVEDA
                 </span>
               </div>
@@ -294,15 +294,15 @@ export function Header() {
                     align="end"
                     className="w-56 bg-white border border-gray-200 shadow-xl"
                   >
-                    <div className="px-3 py-2 text-sm text-gray-600 bg-gray-50 border-b border-gray-200 rounded-t-md truncate">
+                    <div className="px-3 py-2 text-sm text-gray-600 bg-gradient-to-r from-gray-50 to-green-50 border-b border-gray-200 rounded-t-md truncate">
                       {user.email}
                     </div>
                     {userRole === "admin" && (
                       <>
-                        <DropdownMenuItem asChild className="hover:bg-green-50">
+                        <DropdownMenuItem asChild>
                           <Link
                             href="/admin"
-                            className="font-semibold text-green-600"
+                            className="font-semibold text-[#1a8f4a] hover:text-[#157a3d] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
                           >
                             🛡️ Admin Panel
                           </Link>
@@ -310,30 +310,42 @@ export function Header() {
                         <DropdownMenuSeparator className="bg-gray-200" />
                       </>
                     )}
-                    <DropdownMenuItem asChild className="hover:bg-green-50">
-                      <Link href="/account/dashboard" className="text-gray-700">
+                    <DropdownMenuItem asChild>
+                      <Link 
+                        href="/account/dashboard" 
+                        className="text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                      >
                         Dashboard
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="hover:bg-green-50">
-                      <Link href="/account/orders" className="text-gray-700">
+                    <DropdownMenuItem asChild>
+                      <Link 
+                        href="/account/orders" 
+                        className="text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                      >
                         My Orders
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="hover:bg-green-50">
-                      <Link href="/account/profile" className="text-gray-700">
+                    <DropdownMenuItem asChild>
+                      <Link 
+                        href="/account/profile" 
+                        className="text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                      >
                         Profile Settings
                       </Link>
                     </DropdownMenuItem>
-                    <DropdownMenuItem asChild className="hover:bg-green-50">
-                      <Link href="/wishlist" className="text-gray-700">
+                    <DropdownMenuItem asChild>
+                      <Link 
+                        href="/wishlist" 
+                        className="text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                      >
                         My Wishlist
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator className="bg-gray-200" />
                     <DropdownMenuItem
                       onClick={handleLogout}
-                      className="text-red-600 focus:text-red-600 hover:bg-red-50"
+                      className="text-red-600 focus:text-red-600 hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 rounded-md"
                     >
                       Logout
                     </DropdownMenuItem>
@@ -409,24 +421,35 @@ export function Header() {
                     <DropdownMenuTrigger asChild>
                       <button
                         className={cn(
-                          "flex items-center gap-1 px-3 xl:px-5 py-3 text-white text-sm font-medium hover:bg-[#157a3d] transition-colors",
-                          isActiveLink(link.href) && "bg-[#2d5a27]"
+                          "flex items-center gap-1 px-3 xl:px-5 py-3 text-white text-sm font-medium transition-all duration-300 relative group",
+                          "hover:bg-gradient-to-r hover:from-[#157a3d] hover:to-[#1a8f4a] hover:shadow-md",
+                          "before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-[#D4AF37] before:transition-all before:duration-300",
+                          "hover:before:w-full",
+                          isActiveLink(link.href) && "bg-gradient-to-r from-[#157a3d] to-[#1a8f4a] shadow-md before:w-full"
                         )}
                       >
                         {link.name}
-                        <ChevronDown className="h-4 w-4" />
+                        <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" />
                       </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-48">
+                    <DropdownMenuContent className="w-48 bg-white border border-gray-200 shadow-xl">
                       <DropdownMenuItem asChild>
-                        <Link href={link.href} className="font-medium">
+                        <Link 
+                          href={link.href} 
+                          className="font-medium text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                        >
                           View All Products
                         </Link>
                       </DropdownMenuItem>
-                      <DropdownMenuSeparator />
+                      <DropdownMenuSeparator className="bg-gray-200" />
                       {link.subLinks?.map((subLink) => (
                         <DropdownMenuItem key={subLink.name} asChild>
-                          <Link href={subLink.href}>{subLink.name}</Link>
+                          <Link 
+                            href={subLink.href}
+                            className="text-gray-700 hover:text-[#1a8f4a] hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 rounded-md"
+                          >
+                            {subLink.name}
+                          </Link>
                         </DropdownMenuItem>
                       ))}
                     </DropdownMenuContent>
@@ -435,8 +458,11 @@ export function Header() {
                   <Link
                     href={link.href}
                     className={cn(
-                      "block px-3 xl:px-5 py-3 text-white text-sm font-medium hover:bg-[#157a3d] transition-colors",
-                      isActiveLink(link.href) && "bg-[#2d5a27] rounded"
+                      "block px-3 xl:px-5 py-3 text-white text-sm font-medium transition-all duration-300 relative group",
+                      "hover:bg-gradient-to-r hover:from-[#157a3d] hover:to-[#1a8f4a] hover:shadow-md",
+                      "before:absolute before:bottom-0 before:left-0 before:w-0 before:h-0.5 before:bg-[#D4AF37] before:transition-all before:duration-300",
+                      "hover:before:w-full",
+                      isActiveLink(link.href) && "bg-gradient-to-r from-[#157a3d] to-[#1a8f4a] shadow-md before:w-full"
                     )}
                   >
                     {link.name}
@@ -491,23 +517,23 @@ export function Header() {
                             )
                           }
                           className={cn(
-                            "w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 font-semibold rounded-xl transition-all duration-200",
+                            "w-full flex items-center justify-between px-3 sm:px-4 py-2.5 sm:py-3 font-semibold rounded-xl transition-all duration-300 relative group",
                             isActiveLink(link.href)
-                              ? "bg-gradient-to-r from-[#1a8f4a] to-[#157a3d] text-white shadow-md"
-                              : "text-gray-800 hover:bg-[#1a8f4a]/10 active:bg-[#1a8f4a]/20"
+                              ? "bg-gradient-to-r from-[#1a8f4a] to-[#157a3d] text-white shadow-md hover:shadow-lg"
+                              : "text-gray-800 hover:bg-gradient-to-r hover:from-[#1a8f4a]/10 hover:to-[#157a3d]/10 active:bg-gradient-to-r active:from-[#1a8f4a]/20 active:to-[#157a3d]/20 hover:shadow-sm"
                           )}
                         >
                           <div className="flex items-center gap-2 sm:gap-3">
                             <IconComponent className={cn(
-                              "h-4 w-4 sm:h-5 sm:w-5",
-                              isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a]"
+                              "h-4 w-4 sm:h-5 sm:w-5 transition-colors duration-300",
+                              isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a] group-hover:text-[#157a3d]"
                             )} />
                             <span className="text-sm sm:text-base">{link.name}</span>
                           </div>
                           <ChevronDown
                             className={cn(
-                              "h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-200",
-                              isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a]",
+                              "h-4 w-4 sm:h-5 sm:w-5 transition-all duration-300",
+                              isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a] group-hover:text-[#157a3d]",
                               activeDropdown === link.name && "rotate-180"
                             )}
                           />
@@ -524,7 +550,7 @@ export function Header() {
                             <li>
                               <Link
                                 href={link.href}
-                                className="block px-3 sm:px-4 py-2 sm:py-2.5 text-[#1a8f4a] font-semibold hover:bg-[#1a8f4a] hover:text-white rounded-lg transition-all duration-200 text-sm sm:text-base"
+                                className="block px-3 sm:px-4 py-2 sm:py-2.5 text-[#1a8f4a] font-semibold hover:bg-gradient-to-r hover:from-[#1a8f4a] hover:to-[#157a3d] hover:text-white rounded-lg transition-all duration-300 text-sm sm:text-base hover:shadow-md"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
                                 View All Products
@@ -534,7 +560,7 @@ export function Header() {
                               <li key={subLink.name}>
                                 <Link
                                   href={subLink.href}
-                                  className="block px-3 sm:px-4 py-2 sm:py-2.5 text-gray-700 font-medium hover:text-white hover:bg-[#1a8f4a] rounded-lg transition-all duration-200 text-sm sm:text-base"
+                                  className="block px-3 sm:px-4 py-2 sm:py-2.5 text-gray-700 font-medium hover:text-white hover:bg-gradient-to-r hover:from-[#1a8f4a] hover:to-[#157a3d] rounded-lg transition-all duration-300 text-sm sm:text-base hover:shadow-md"
                                   onClick={() => setMobileMenuOpen(false)}
                                 >
                                   {subLink.name}
@@ -548,16 +574,16 @@ export function Header() {
                       <Link
                         href={link.href}
                         className={cn(
-                          "flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 font-semibold rounded-xl transition-all duration-200",
+                          "flex items-center gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3 font-semibold rounded-xl transition-all duration-300 relative group",
                           isActiveLink(link.href)
-                            ? "bg-gradient-to-r from-[#1a8f4a] to-[#157a3d] text-white shadow-md"
-                            : "text-gray-800 hover:bg-[#1a8f4a]/10 active:bg-[#1a8f4a]/20"
+                            ? "bg-gradient-to-r from-[#1a8f4a] to-[#157a3d] text-white shadow-md hover:shadow-lg"
+                            : "text-gray-800 hover:bg-gradient-to-r hover:from-[#1a8f4a]/10 hover:to-[#157a3d]/10 active:bg-gradient-to-r active:from-[#1a8f4a]/20 active:to-[#157a3d]/20 hover:shadow-sm"
                         )}
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         <IconComponent className={cn(
-                          "h-4 w-4 sm:h-5 sm:w-5",
-                          isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a]"
+                          "h-4 w-4 sm:h-5 sm:w-5 transition-colors duration-300",
+                          isActiveLink(link.href) ? "text-white" : "text-[#1a8f4a] group-hover:text-[#157a3d]"
                         )} />
                         <span className="text-sm sm:text-base">{link.name}</span>
                       </Link>
@@ -588,7 +614,10 @@ export function Header() {
               <div className="flex items-center justify-center gap-2 text-gray-600 text-xs sm:text-sm">
                 <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#1a8f4a]" />
                 <span>Need Help? Call us at</span>
-                <a href="tel:+919876543210" className="text-[#1a8f4a] font-semibold hover:underline">
+                <a 
+                  href="tel:+919876543210" 
+                  className="text-[#1a8f4a] font-semibold hover:text-[#157a3d] hover:underline transition-colors duration-200"
+                >
                   +91 98765 43210
                 </a>
               </div>

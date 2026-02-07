@@ -72,7 +72,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
             <div key={currentIndex} className="animate-in fade-in slide-in-from-left duration-500">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 {banners[currentIndex].title.split(' ').slice(0, 2).join(' ')}
-                <span className="block text-green-700">
+                <span className="block text-[#D4AF37]">
                   {banners[currentIndex].title.split(' ').slice(2).join(' ')}
                 </span>
               </h1>
@@ -110,7 +110,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-6">
               <div>
-                <p className="text-2xl sm:text-3xl font-bold text-green-700">5000+</p>
+                <p className="text-2xl sm:text-3xl font-bold text-green-700">1 Lakh +</p>
                 <p className="text-xs sm:text-sm text-gray-600">Happy Customers</p>
               </div>
               <div>
@@ -145,6 +145,7 @@ export function HeroSlider({ banners }: HeroSliderProps) {
                     fill
                     className="object-cover"
                     priority={index === 0}
+                    unoptimized
                   />
                 </div>
               ))}

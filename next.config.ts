@@ -11,7 +11,17 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "images.unsplash.com",
       },
+      {
+        protocol: "https",
+        hostname: "ibb.co",
+      },
+      {
+        protocol: "https",
+        hostname: "i.ibb.co",
+      },
     ],
+    // Allow unoptimized images from any domain
+    unoptimized: false,
     formats: ["image/webp", "image/avif"],
   },
   experimental: {

@@ -103,7 +103,7 @@ export default async function HomePage() {
     <div className="flex flex-col">
       {/* Top Announcement Bar - Marquee */}
       {announcementItems && announcementItems.length > 0 && (
-        <div className="bg-gradient-to-r from-[#1a8f4a] via-[#D4AF37] to-[#1a8f4a] py-2 text-sm sm:text-base overflow-hidden">
+        <div className="bg-gradient-to-r from-[#1e7a4e] via-[#D4AF37] to-[#1e7a4e] py-2 text-sm sm:text-base overflow-hidden">
           <div className="marquee-container">
             <div className="marquee-content animate-marquee">
               {announcementItems.map((item: any, index: number) => (
@@ -155,7 +155,7 @@ export default async function HomePage() {
         <section className="bg-gradient-to-br from-[#F4E4B7] to-white py-12 sm:py-14 md:py-16 relative overflow-hidden">
           {/* Decorative Background Elements */}
           <div className="absolute top-0 left-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#1a8f4a]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#1e7a4e]/10 rounded-full blur-3xl"></div>
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-8 sm:mb-10">
@@ -164,17 +164,17 @@ export default async function HomePage() {
                   🏆 Premium Quality
                 </span>
               </div>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1a8f4a] mb-2 sm:mb-3">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#1e7a4e] mb-2 sm:mb-3">
                 Certificate of Natural Goodness
               </h2>
               <p className="text-base sm:text-lg text-gray-700">
                 Certified quality you can trust
               </p>
             </div>
-            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-[#D4AF37] p-8 sm:p-10 md:p-12 max-w-6xl mx-auto relative overflow-hidden">
+            <div className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-[#1e7a4e] p-8 sm:p-10 md:p-12 max-w-6xl mx-auto relative overflow-hidden">
               {/* Decorative Corner Elements */}
-              <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-[#D4AF37] rounded-tl-2xl"></div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-[#D4AF37] rounded-br-2xl"></div>
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-[#1e7a4e] rounded-tl-2xl"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-[#1e7a4e] rounded-br-2xl"></div>
               
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 relative z-10">
                 {certifications.map((cert: any, index: number) => (
@@ -189,6 +189,7 @@ export default async function HomePage() {
                         alt={cert.title}
                         fill
                         className="object-contain drop-shadow-lg"
+                        unoptimized
                       />
                     </div>
                     <p className="text-xs sm:text-sm font-bold text-gray-900 text-center">
@@ -204,18 +205,22 @@ export default async function HomePage() {
 
       {/* Shop by Health Goals - Featured Health Solutions */}
       {healthGoals && healthGoals.length > 0 && (
-        <section className="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16 md:py-20 relative">
-          <div className="container mx-auto px-4">
+        <section className="bg-gradient-to-br from-[#F4E4B7] to-white py-12 sm:py-16 md:py-20 relative overflow-hidden">
+          {/* Decorative Background Elements */}
+          <div className="absolute top-0 left-0 w-64 h-64 bg-[#D4AF37]/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#1e7a4e]/10 rounded-full blur-3xl"></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-10 sm:mb-12 md:mb-14">
               <div className="inline-block mb-4">
-                <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#1a8f4a] to-[#D4AF37] text-white rounded-full text-sm font-semibold shadow-lg">
+                <span className="inline-block px-4 py-2 bg-gradient-to-r from-[#D4AF37] to-[#B8941F] text-white rounded-full text-sm font-semibold shadow-lg">
                   🎯 Your Health Journey
                 </span>
               </div>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-3 uppercase tracking-wide">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e7a4e] mb-3 uppercase tracking-wide">
                 Shop by Health Goals
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto">
                 Discover personalized wellness solutions for your unique needs
               </p>
             </div>
@@ -224,22 +229,30 @@ export default async function HomePage() {
               {healthGoals.map((goal: any, index: number) => (
                 <div 
                   key={goal.id} 
-                  className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group premium-card"
+                  className="bg-white rounded-3xl overflow-hidden border-2 border-[#1e7a4e] hover:border-[#D4AF37] shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 group premium-card relative"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="p-6 sm:p-7">
+                  {/* Decorative Corner Elements */}
+                  <div className="absolute top-0 left-0 w-16 h-16 border-t-4 border-l-4 border-[#1e7a4e] rounded-tl-3xl opacity-100 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute bottom-0 right-0 w-16 h-16 border-b-4 border-r-4 border-[#1e7a4e] rounded-br-3xl opacity-100 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  
+                  {/* Shine Effect on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                  
+                  <div className="p-6 sm:p-7 relative z-10">
                     <div className="flex items-center justify-center mb-4">
-                      <h3 className="text-center font-bold text-gray-900 text-base sm:text-lg uppercase tracking-wide group-hover:text-[#D4AF37] transition-colors">
+                      <h3 className="text-center font-bold text-[#1e7a4e] text-base sm:text-lg uppercase tracking-wide group-hover:text-[#D4AF37] transition-colors">
                         {goal.title}
                       </h3>
                     </div>
-                    <div className={`relative aspect-square bg-gradient-to-br ${goal.bg_gradient} rounded-2xl overflow-hidden mb-6 p-4 group-hover:scale-105 transition-transform duration-500`}>
+                    <div className={`relative aspect-square bg-gradient-to-br ${goal.bg_gradient || 'from-[#F4E4B7] to-white'} rounded-2xl overflow-hidden mb-6 p-4 group-hover:scale-105 transition-transform duration-500 border-2 border-[#1e7a4e]/30`}>
                       <div className="relative w-full h-full bg-white rounded-xl overflow-hidden shadow-inner">
                         <Image
                           src={goal.image_url}
                           alt={goal.title}
                           fill
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          unoptimized
                         />
                       </div>
                     </div>
@@ -264,7 +277,7 @@ export default async function HomePage() {
               📦 Shop by Categories
             </span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a8f4a] mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1e7a4e] mb-3 sm:mb-4">
             Browse All Categories
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4">
@@ -289,7 +302,7 @@ export default async function HomePage() {
                 className="group"
                 style={{ animationDelay: `${index * 0.05}s` }}
               >
-                <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-7 text-center hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 premium-card relative overflow-hidden">
+                <div className="bg-gradient-to-br from-white to-gray-50 border-2 border-[#1e7a4e]/30 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-7 text-center hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 premium-card relative overflow-hidden">
                   {/* Shine Effect on Hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                   
@@ -338,7 +351,7 @@ export default async function HomePage() {
                 : 0;
               return (
                 <Link key={product.id} href={`/products/${product.slug}`} className="group">
-                  <div className="bg-white rounded-3xl overflow-hidden border-2 border-gray-100 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 premium-card">
+                  <div className="bg-white rounded-3xl overflow-hidden border-2 border-[#1e7a4e]/30 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 premium-card">
                     {/* Image */}
                     <div className="relative aspect-square bg-gradient-to-br from-[#F4E4B7] via-white to-[#F4E4B7] overflow-hidden">
                       {discount > 0 && (
@@ -374,7 +387,7 @@ export default async function HomePage() {
                       </h3>
                       
                       <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-[#1a8f4a]">
+                        <span className="text-2xl font-bold text-[#1e7a4e]">
                           {formatPrice(product.price)}
                         </span>
                         {product.compare_at_price && (
@@ -429,7 +442,7 @@ export default async function HomePage() {
                       <div className="w-20 h-20 bg-gradient-to-br from-white to-[#F4E4B7] rounded-full flex items-center justify-center mx-auto mb-5 text-5xl group-hover:scale-125 transition-transform duration-500 border-4 border-[#D4AF37] shadow-lg">
                         {feature.icon}
                       </div>
-                      <h3 className="font-bold text-xl mb-3 text-[#1a8f4a] group-hover:text-[#D4AF37] transition-colors">{feature.title}</h3>
+                      <h3 className="font-bold text-xl mb-3 text-[#1e7a4e] group-hover:text-[#D4AF37] transition-colors">{feature.title}</h3>
                       <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
@@ -464,7 +477,7 @@ export default async function HomePage() {
                 {/* First set of reviews */}
                 {customerReviews.map((review: any, index: number) => (
                   <div key={`first-${index}`} className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px]">
-                    <div className="bg-white rounded-3xl p-7 border-2 border-gray-100 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+                    <div className="bg-white rounded-3xl p-7 border-2 border-[#1e7a4e]/30 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
                       {/* Decorative Corner */}
                       <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-bl-3xl"></div>
                       
@@ -506,7 +519,7 @@ export default async function HomePage() {
                 {/* Duplicate set for seamless loop */}
                 {customerReviews.map((review: any, index: number) => (
                   <div key={`second-${index}`} className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px]">
-                    <div className="bg-white rounded-3xl p-7 border-2 border-gray-100 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
+                    <div className="bg-white rounded-3xl p-7 border-2 border-[#1e7a4e]/30 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 h-full flex flex-col relative overflow-hidden group">
                       {/* Decorative Corner */}
                       <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-[#D4AF37]/20 to-transparent rounded-bl-3xl"></div>
                       
@@ -600,7 +613,7 @@ export default async function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {blogs?.map((blog: any) => (
               <Link key={blog.id} href={`/blogs/${blog.slug}`} className="group">
-                <article className="bg-white rounded-3xl overflow-hidden border-2 border-gray-100 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 h-full flex flex-col premium-card">
+                <article className="bg-white rounded-3xl overflow-hidden border-2 border-[#1e7a4e]/30 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 h-full flex flex-col premium-card">
                   {/* Featured Image */}
                   <div className="relative h-52 sm:h-60 bg-gradient-to-br from-[#F4E4B7] via-white to-[#F4E4B7] overflow-hidden">
                     {blog.featured_image && (
@@ -609,6 +622,7 @@ export default async function HomePage() {
                         alt={blog.title}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        unoptimized
                       />
                     )}
                   </div>

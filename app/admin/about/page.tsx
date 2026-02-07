@@ -701,8 +701,37 @@ export default function AdminAboutPage() {
                 <Input
                   value={storyContent.image}
                   onChange={(e) => setStoryContent({ ...storyContent, image: e.target.value })}
-                  placeholder="https://images.unsplash.com/..."
+                  placeholder="https://example.com/image.jpg (Direct image URL required)"
                 />
+                {storyContent.image && (
+                  <>
+                    {storyContent.image.includes("photos.app.goo.gl") && (
+                      <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                        <br />
+                        1. Open the image in Google Photos
+                        <br />
+                        2. Right-click → "Copy image address" or "Open image in new tab"
+                        <br />
+                        3. Copy the direct URL (should end with .jpg, .png, etc.)
+                      </p>
+                    )}
+                    <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                      <img
+                        src={storyContent.image}
+                        alt="Preview"
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                          const parent = e.currentTarget.parentElement;
+                          if (parent) {
+                            parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                          }
+                        }}
+                      />
+                    </div>
+                  </>
+                )}
               </div>
               <div className="space-y-2">
                 <Label>Paragraphs (one per line, leave empty line for separation)</Label>
@@ -1042,8 +1071,37 @@ export default function AdminAboutPage() {
                   <Input
                     value={centerForm.image}
                     onChange={(e) => setCenterForm({ ...centerForm, image: e.target.value })}
-                    placeholder="https://images.unsplash.com/..."
+                    placeholder="https://example.com/image.jpg (Direct image URL required)"
                   />
+                  {centerForm.image && (
+                    <>
+                      {centerForm.image.includes("photos.app.goo.gl") && (
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                          ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                          <br />
+                          1. Open the image in Google Photos
+                          <br />
+                          2. Right-click → "Copy image address" or "Open image in new tab"
+                          <br />
+                          3. Copy the direct URL (should end with .jpg, .png, etc.)
+                        </p>
+                      )}
+                      <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                        <img
+                          src={centerForm.image}
+                          alt="Preview"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const parent = e.currentTarget.parentElement;
+                            if (parent) {
+                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                            }
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="space-y-2 col-span-2">
                   <Label>Services</Label>
@@ -1377,8 +1435,37 @@ export default function AdminAboutPage() {
                   <Input
                     value={teamForm.image}
                     onChange={(e) => setTeamForm({ ...teamForm, image: e.target.value })}
-                    placeholder="https://images.unsplash.com/..."
+                    placeholder="https://example.com/image.jpg (Direct image URL required)"
                   />
+                  {teamForm.image && (
+                    <>
+                      {teamForm.image.includes("photos.app.goo.gl") && (
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                          ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                          <br />
+                          1. Open the image in Google Photos
+                          <br />
+                          2. Right-click → "Copy image address" or "Open image in new tab"
+                          <br />
+                          3. Copy the direct URL (should end with .jpg, .png, etc.)
+                        </p>
+                      )}
+                      <div className="relative w-32 h-32 rounded-full border overflow-hidden bg-muted mt-2">
+                        <img
+                          src={teamForm.image}
+                          alt="Preview"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const parent = e.currentTarget.parentElement;
+                            if (parent) {
+                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-xs">Image failed to load</div>';
+                            }
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label>Experience</Label>

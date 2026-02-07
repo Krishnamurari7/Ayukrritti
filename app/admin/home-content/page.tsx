@@ -917,8 +917,37 @@ export default function HomeContentManagement() {
                     onChange={(e) =>
                       setCertificationForm({ ...certificationForm, icon_url: e.target.value })
                     }
-                    placeholder="/certifications/gmo-free.png"
+                    placeholder="https://example.com/image.png (Direct image URL required)"
                   />
+                  {certificationForm.icon_url && (
+                    <>
+                      {certificationForm.icon_url.includes("photos.app.goo.gl") && (
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200">
+                          ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                          <br />
+                          1. Open the image in Google Photos
+                          <br />
+                          2. Right-click → "Copy image address" or "Open image in new tab"
+                          <br />
+                          3. Copy the direct URL (should end with .jpg, .png, etc.)
+                        </p>
+                      )}
+                      <div className="relative w-full h-32 rounded border overflow-hidden bg-muted mt-2">
+                        <img
+                          src={certificationForm.icon_url}
+                          alt="Preview"
+                          className="w-full h-full object-contain"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const parent = e.currentTarget.parentElement;
+                            if (parent) {
+                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                            }
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label>Display Order</Label>
@@ -1041,8 +1070,37 @@ export default function HomeContentManagement() {
                     onChange={(e) =>
                       setHealthGoalForm({ ...healthGoalForm, image_url: e.target.value })
                     }
-                    placeholder="/health-goals/digestive-care.jpg"
+                    placeholder="https://example.com/image.jpg (Direct image URL required)"
                   />
+                  {healthGoalForm.image_url && (
+                    <>
+                      {healthGoalForm.image_url.includes("photos.app.goo.gl") && (
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200">
+                          ⚠️ Google Photos shared links won't work. Please get the direct image URL:
+                          <br />
+                          1. Open the image in Google Photos
+                          <br />
+                          2. Right-click → "Copy image address" or "Open image in new tab"
+                          <br />
+                          3. Copy the direct URL (should end with .jpg, .png, etc.)
+                        </p>
+                      )}
+                      <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                        <img
+                          src={healthGoalForm.image_url}
+                          alt="Preview"
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            const parent = e.currentTarget.parentElement;
+                            if (parent) {
+                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                            }
+                          }}
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <Label>Link URL</Label>
