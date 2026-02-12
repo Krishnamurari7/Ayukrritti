@@ -226,12 +226,19 @@ export default async function AboutPage() {
               </div>
             </div>
             <div className="relative aspect-video md:aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-[#D4AF37] group">
-              <Image
-                src={storyContent.image}
-                alt={storyContent.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+              {storyContent.image ? (
+                <Image
+                  src={storyContent.image}
+                  alt={storyContent.title || "Our Story"}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  unoptimized
+                />
+              ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#F4E4B7] to-white flex items-center justify-center text-gray-400">
+                  No image available
+                </div>
+              )}
               {/* Overlay Effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-[#1a8f4a]/30 to-transparent group-hover:opacity-0 transition-opacity duration-500"></div>
             </div>
