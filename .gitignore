@@ -56,3 +56,5 @@ playwright/.cache
 .supabase
 
 .vercel
+
+.vercel

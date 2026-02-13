@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
+import { useImageValidation } from "@/hooks/useImageValidation";
 import {
   Table,
   TableBody,
@@ -124,6 +125,7 @@ export default function HomeContentManagement() {
     is_active: true,
   });
   const [editingHealthGoalId, setEditingHealthGoalId] = useState<string | null>(null);
+  const healthGoalImageValidation = useImageValidation(healthGoalForm.image_url);
 
   // Why Choose Us
   const [whyChooseUs, setWhyChooseUs] = useState<WhyChooseUs[]>([]);
@@ -158,6 +160,7 @@ export default function HomeContentManagement() {
     is_active: true,
   });
   const [editingCertificationId, setEditingCertificationId] = useState<string | null>(null);
+  const certificationImageValidation = useImageValidation(certificationForm.icon_url);
 
   // Fetch all data
   useEffect(() => {
@@ -921,8 +924,24 @@ export default function HomeContentManagement() {
                   />
                   {certificationForm.icon_url && (
                     <>
+                      {/* Validation Status */}
+                      {certificationImageValidation.isValidating && (
+                        <p className="text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
+                          🔍 Checking image URL...
+                        </p>
+                      )}
+                      {certificationImageValidation.isValid === false && certificationImageValidation.error && (
+                        <p className="text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
+                          ❌ {certificationImageValidation.error}
+                        </p>
+                      )}
+                      {certificationImageValidation.isValid === true && (
+                        <p className="text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
+                          ✅ Image URL is valid
+                        </p>
+                      )}
                       {certificationForm.icon_url.includes("photos.app.goo.gl") && (
-                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200">
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
                           ⚠️ Google Photos shared links won't work. Please get the direct image URL:
                           <br />
                           1. Open the image in Google Photos
@@ -932,20 +951,23 @@ export default function HomeContentManagement() {
                           3. Copy the direct URL (should end with .jpg, .png, etc.)
                         </p>
                       )}
-                      <div className="relative w-full h-32 rounded border overflow-hidden bg-muted mt-2">
-                        <img
-                          src={certificationForm.icon_url}
-                          alt="Preview"
-                          className="w-full h-full object-contain"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            const parent = e.currentTarget.parentElement;
-                            if (parent) {
-                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
-                            }
-                          }}
-                        />
-                      </div>
+                      {/* Only show preview if validation passed or is still validating */}
+                      {(certificationImageValidation.isValid === true || certificationImageValidation.isValidating || certificationImageValidation.isValid === null) && (
+                        <div className="relative w-full h-32 rounded border overflow-hidden bg-muted mt-2">
+                          <img
+                            src={certificationForm.icon_url}
+                            alt="Preview"
+                            className="w-full h-full object-contain"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const parent = e.currentTarget.parentElement;
+                              if (parent) {
+                                parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                              }
+                            }}
+                          />
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
@@ -1074,8 +1096,24 @@ export default function HomeContentManagement() {
                   />
                   {healthGoalForm.image_url && (
                     <>
+                      {/* Validation Status */}
+                      {healthGoalImageValidation.isValidating && (
+                        <p className="text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
+                          🔍 Checking image URL...
+                        </p>
+                      )}
+                      {healthGoalImageValidation.isValid === false && healthGoalImageValidation.error && (
+                        <p className="text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
+                          ❌ {healthGoalImageValidation.error}
+                        </p>
+                      )}
+                      {healthGoalImageValidation.isValid === true && (
+                        <p className="text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
+                          ✅ Image URL is valid
+                        </p>
+                      )}
                       {healthGoalForm.image_url.includes("photos.app.goo.gl") && (
-                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200">
+                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
                           ⚠️ Google Photos shared links won't work. Please get the direct image URL:
                           <br />
                           1. Open the image in Google Photos
@@ -1085,20 +1123,23 @@ export default function HomeContentManagement() {
                           3. Copy the direct URL (should end with .jpg, .png, etc.)
                         </p>
                       )}
-                      <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
-                        <img
-                          src={healthGoalForm.image_url}
-                          alt="Preview"
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            e.currentTarget.style.display = 'none';
-                            const parent = e.currentTarget.parentElement;
-                            if (parent) {
-                              parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
-                            }
-                          }}
-                        />
-                      </div>
+                      {/* Only show preview if validation passed or is still validating */}
+                      {(healthGoalImageValidation.isValid === true || healthGoalImageValidation.isValidating || healthGoalImageValidation.isValid === null) && (
+                        <div className="relative w-full h-40 rounded border overflow-hidden bg-muted mt-2">
+                          <img
+                            src={healthGoalForm.image_url}
+                            alt="Preview"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              const parent = e.currentTarget.parentElement;
+                              if (parent) {
+                                parent.innerHTML = '<div class="flex items-center justify-center h-full text-red-500 text-sm">Image failed to load. Please check the URL.</div>';
+                              }
+                            }}
+                          />
+                        </div>
+                      )}
                     </>
                   )}
                 </div>
