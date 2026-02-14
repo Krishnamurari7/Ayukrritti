@@ -617,30 +617,30 @@ export default function HomeContentManagement() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 md:space-y-6 p-4 md:p-6">
       <div>
-        <h1 className="text-3xl font-bold">Home Page Content Management</h1>
-        <p className="text-gray-600">Manage all content displayed on the home page</p>
+        <h1 className="text-2xl md:text-3xl font-bold">Home Page Content Management</h1>
+        <p className="text-sm md:text-base text-gray-600 mt-1">Manage all content displayed on the home page</p>
       </div>
 
       <Tabs defaultValue="announcements" className="w-full">
-        <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="announcements">Announcements</TabsTrigger>
-          <TabsTrigger value="badges">Trust Badges</TabsTrigger>
-          <TabsTrigger value="certifications">Certifications</TabsTrigger>
-          <TabsTrigger value="healthGoals">Health Goals</TabsTrigger>
-          <TabsTrigger value="whyChooseUs">Why Choose Us</TabsTrigger>
-          <TabsTrigger value="reviews">Reviews</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+          <TabsTrigger value="announcements" className="text-xs md:text-sm">Announcements</TabsTrigger>
+          <TabsTrigger value="badges" className="text-xs md:text-sm">Trust Badges</TabsTrigger>
+          <TabsTrigger value="certifications" className="text-xs md:text-sm">Certifications</TabsTrigger>
+          <TabsTrigger value="healthGoals" className="text-xs md:text-sm">Health Goals</TabsTrigger>
+          <TabsTrigger value="whyChooseUs" className="text-xs md:text-sm">Why Choose Us</TabsTrigger>
+          <TabsTrigger value="reviews" className="text-xs md:text-sm">Reviews</TabsTrigger>
         </TabsList>
 
         {/* Announcements Tab */}
         <TabsContent value="announcements" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingAnnouncementId ? "Edit" : "Add"} Announcement</CardTitle>
+              <CardTitle className="text-lg md:text-xl">{editingAnnouncementId ? "Edit" : "Add"} Announcement</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Content</Label>
                   <Input
@@ -684,8 +684,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveAnnouncement} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveAnnouncement} disabled={loading} className="w-full sm:w-auto">
                   {editingAnnouncementId ? "Update" : "Create"}
                 </Button>
                 {editingAnnouncementId && (
@@ -700,6 +700,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingAnnouncementId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -710,49 +711,55 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Announcements List</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Announcements List</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Icon</TableHead>
-                    <TableHead>Content</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Icon</TableHead>
+                    <TableHead className="text-xs md:text-sm">Content</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {announcements.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.icon}</TableCell>
-                      <TableCell>{item.content}</TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditAnnouncement(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("announcement");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm">{item.icon}</TableCell>
+                      <TableCell className="text-sm break-words">{item.content}</TableCell>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditAnnouncement(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("announcement");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -761,10 +768,10 @@ export default function HomeContentManagement() {
         <TabsContent value="badges" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingBadgeId ? "Edit" : "Add"} Trust Badge</CardTitle>
+              <CardTitle className="text-lg md:text-xl">{editingBadgeId ? "Edit" : "Add"} Trust Badge</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Title</Label>
                   <Input
@@ -817,8 +824,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveBadge} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveBadge} disabled={loading} className="w-full sm:w-auto">
                   {editingBadgeId ? "Update" : "Create"}
                 </Button>
                 {editingBadgeId && (
@@ -835,6 +842,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingBadgeId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -845,51 +853,57 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Trust Badges List</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Trust Badges List</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Icon</TableHead>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Subtitle</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Icon</TableHead>
+                    <TableHead className="text-xs md:text-sm">Title</TableHead>
+                    <TableHead className="text-xs md:text-sm">Subtitle</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {badges.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.icon}</TableCell>
-                      <TableCell>{item.title}</TableCell>
-                      <TableCell>{item.subtitle}</TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditBadge(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("badge");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm">{item.icon}</TableCell>
+                      <TableCell className="text-sm break-words">{item.title}</TableCell>
+                      <TableCell className="text-sm break-words">{item.subtitle}</TableCell>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditBadge(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("badge");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -898,11 +912,11 @@ export default function HomeContentManagement() {
         <TabsContent value="certifications" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingCertificationId ? "Edit" : "Add"} Certification</CardTitle>
-              <p className="text-sm text-gray-600">Minimum 3 active, Maximum 10 total</p>
+              <CardTitle className="text-lg md:text-xl">{editingCertificationId ? "Edit" : "Add"} Certification</CardTitle>
+              <p className="text-xs md:text-sm text-gray-600">Minimum 3 active, Maximum 10 total</p>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Title</Label>
                   <Input
@@ -926,22 +940,22 @@ export default function HomeContentManagement() {
                     <>
                       {/* Validation Status */}
                       {certificationImageValidation.isValidating && (
-                        <p className="text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
+                        <p className="text-xs md:text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
                           🔍 Checking image URL...
                         </p>
                       )}
                       {certificationImageValidation.isValid === false && certificationImageValidation.error && (
-                        <p className="text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
+                        <p className="text-xs md:text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
                           ❌ {certificationImageValidation.error}
                         </p>
                       )}
                       {certificationImageValidation.isValid === true && (
-                        <p className="text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
+                        <p className="text-xs md:text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
                           ✅ Image URL is valid
                         </p>
                       )}
                       {certificationForm.icon_url.includes("photos.app.goo.gl") && (
-                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        <p className="text-xs md:text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
                           ⚠️ Google Photos shared links won't work. Please get the direct image URL:
                           <br />
                           1. Open the image in Google Photos
@@ -994,8 +1008,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveCertification} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveCertification} disabled={loading} className="w-full sm:w-auto">
                   {editingCertificationId ? "Update" : "Create"}
                 </Button>
                 {editingCertificationId && (
@@ -1010,6 +1024,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingCertificationId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -1020,49 +1035,55 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Certifications List ({certifications.filter(c => c.is_active).length} active)</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Certifications List ({certifications.filter(c => c.is_active).length} active)</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Icon URL</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Title</TableHead>
+                    <TableHead className="text-xs md:text-sm">Icon URL</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {certifications.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.title}</TableCell>
-                      <TableCell className="text-xs max-w-xs truncate">{item.icon_url}</TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditCertification(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("certification");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm break-words">{item.title}</TableCell>
+                      <TableCell className="text-xs md:text-sm max-w-xs truncate break-all">{item.icon_url}</TableCell>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditCertification(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("certification");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -1071,10 +1092,10 @@ export default function HomeContentManagement() {
         <TabsContent value="healthGoals" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingHealthGoalId ? "Edit" : "Add"} Health Goal</CardTitle>
+              <CardTitle className="text-lg md:text-xl">{editingHealthGoalId ? "Edit" : "Add"} Health Goal</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Title</Label>
                   <Input
@@ -1098,22 +1119,22 @@ export default function HomeContentManagement() {
                     <>
                       {/* Validation Status */}
                       {healthGoalImageValidation.isValidating && (
-                        <p className="text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
+                        <p className="text-xs md:text-sm text-blue-600 bg-blue-50 p-2 rounded border border-blue-200 mt-2">
                           🔍 Checking image URL...
                         </p>
                       )}
                       {healthGoalImageValidation.isValid === false && healthGoalImageValidation.error && (
-                        <p className="text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
+                        <p className="text-xs md:text-sm text-red-600 bg-red-50 p-2 rounded border border-red-200 mt-2">
                           ❌ {healthGoalImageValidation.error}
                         </p>
                       )}
                       {healthGoalImageValidation.isValid === true && (
-                        <p className="text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
+                        <p className="text-xs md:text-sm text-green-600 bg-green-50 p-2 rounded border border-green-200 mt-2">
                           ✅ Image URL is valid
                         </p>
                       )}
                       {healthGoalForm.image_url.includes("photos.app.goo.gl") && (
-                        <p className="text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
+                        <p className="text-xs md:text-sm text-amber-600 bg-amber-50 p-2 rounded border border-amber-200 mt-2">
                           ⚠️ Google Photos shared links won't work. Please get the direct image URL:
                           <br />
                           1. Open the image in Google Photos
@@ -1186,8 +1207,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveHealthGoal} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveHealthGoal} disabled={loading} className="w-full sm:w-auto">
                   {editingHealthGoalId ? "Update" : "Create"}
                 </Button>
                 {editingHealthGoalId && (
@@ -1204,6 +1225,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingHealthGoalId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -1214,51 +1236,57 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Health Goals List</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Health Goals List</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Image URL</TableHead>
-                    <TableHead>Link</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Title</TableHead>
+                    <TableHead className="text-xs md:text-sm">Image URL</TableHead>
+                    <TableHead className="text-xs md:text-sm">Link</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {healthGoals.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.title}</TableCell>
-                      <TableCell className="text-xs">{item.image_url}</TableCell>
-                      <TableCell className="text-xs">{item.link_url}</TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditHealthGoal(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("healthGoal");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm break-words">{item.title}</TableCell>
+                      <TableCell className="text-xs md:text-sm max-w-xs truncate break-all">{item.image_url}</TableCell>
+                      <TableCell className="text-xs md:text-sm max-w-xs truncate break-all">{item.link_url}</TableCell>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditHealthGoal(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("healthGoal");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -1267,10 +1295,10 @@ export default function HomeContentManagement() {
         <TabsContent value="whyChooseUs" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingWhyChooseUsId ? "Edit" : "Add"} Why Choose Us Item</CardTitle>
+              <CardTitle className="text-lg md:text-xl">{editingWhyChooseUsId ? "Edit" : "Add"} Why Choose Us Item</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Icon (Emoji)</Label>
                   <Input
@@ -1324,8 +1352,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveWhyChooseUs} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveWhyChooseUs} disabled={loading} className="w-full sm:w-auto">
                   {editingWhyChooseUsId ? "Update" : "Create"}
                 </Button>
                 {editingWhyChooseUsId && (
@@ -1341,6 +1369,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingWhyChooseUsId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -1351,51 +1380,57 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Why Choose Us List</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Why Choose Us List</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Icon</TableHead>
-                    <TableHead>Title</TableHead>
-                    <TableHead>Description</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Icon</TableHead>
+                    <TableHead className="text-xs md:text-sm">Title</TableHead>
+                    <TableHead className="text-xs md:text-sm">Description</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {whyChooseUs.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.icon}</TableCell>
-                      <TableCell>{item.title}</TableCell>
-                      <TableCell className="text-xs">{item.description}</TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditWhyChooseUs(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("whyChooseUs");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm">{item.icon}</TableCell>
+                      <TableCell className="text-sm break-words">{item.title}</TableCell>
+                      <TableCell className="text-xs md:text-sm max-w-xs break-words">{item.description}</TableCell>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditWhyChooseUs(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("whyChooseUs");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -1404,10 +1439,10 @@ export default function HomeContentManagement() {
         <TabsContent value="reviews" className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>{editingReviewId ? "Edit" : "Add"} Customer Review</CardTitle>
+              <CardTitle className="text-lg md:text-xl">{editingReviewId ? "Edit" : "Add"} Customer Review</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Customer Name</Label>
                   <Input
@@ -1484,8 +1519,8 @@ export default function HomeContentManagement() {
                   <Label>Active</Label>
                 </div>
               </div>
-              <div className="flex gap-2">
-                <Button onClick={handleSaveReview} disabled={loading}>
+              <div className="flex flex-col sm:flex-row gap-2">
+                <Button onClick={handleSaveReview} disabled={loading} className="w-full sm:w-auto">
                   {editingReviewId ? "Update" : "Create"}
                 </Button>
                 {editingReviewId && (
@@ -1503,6 +1538,7 @@ export default function HomeContentManagement() {
                       });
                       setEditingReviewId(null);
                     }}
+                    className="w-full sm:w-auto"
                   >
                     Cancel
                   </Button>
@@ -1513,57 +1549,63 @@ export default function HomeContentManagement() {
 
           <Card>
             <CardHeader>
-              <CardTitle>Customer Reviews List</CardTitle>
+              <CardTitle className="text-lg md:text-xl">Customer Reviews List</CardTitle>
             </CardHeader>
             <CardContent>
-              <Table>
+              <div className="overflow-x-auto">
+                <Table>
                 <TableHeader>
                   <TableRow>
-                    <TableHead>Customer</TableHead>
-                    <TableHead>Location</TableHead>
-                    <TableHead>Product</TableHead>
-                    <TableHead>Rating</TableHead>
-                    <TableHead>Review</TableHead>
-                    <TableHead>Order</TableHead>
-                    <TableHead>Active</TableHead>
-                    <TableHead>Actions</TableHead>
+                    <TableHead className="text-xs md:text-sm">Customer</TableHead>
+                    <TableHead className="text-xs md:text-sm">Location</TableHead>
+                    <TableHead className="text-xs md:text-sm">Product</TableHead>
+                    <TableHead className="text-xs md:text-sm">Rating</TableHead>
+                    <TableHead className="text-xs md:text-sm">Review</TableHead>
+                    <TableHead className="text-xs md:text-sm">Order</TableHead>
+                    <TableHead className="text-xs md:text-sm">Active</TableHead>
+                    <TableHead className="text-xs md:text-sm">Actions</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
                   {reviews.map((item) => (
                     <TableRow key={item.id}>
-                      <TableCell>{item.customer_name}</TableCell>
-                      <TableCell>{item.location}</TableCell>
-                      <TableCell>{item.product_name}</TableCell>
-                      <TableCell>{"⭐".repeat(item.rating)}</TableCell>
-                      <TableCell className="text-xs max-w-xs truncate">
+                      <TableCell className="text-sm break-words">{item.customer_name}</TableCell>
+                      <TableCell className="text-sm">{item.location}</TableCell>
+                      <TableCell className="text-sm break-words">{item.product_name}</TableCell>
+                      <TableCell className="text-sm">{"⭐".repeat(item.rating)}</TableCell>
+                      <TableCell className="text-xs md:text-sm max-w-xs truncate break-words">
                         {item.review_text}
                       </TableCell>
-                      <TableCell>{item.display_order}</TableCell>
-                      <TableCell>{item.is_active ? "Yes" : "No"}</TableCell>
-                      <TableCell className="space-x-2">
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => handleEditReview(item)}
-                        >
-                          Edit
-                        </Button>
-                        <Button
-                          size="sm"
-                          variant="destructive"
-                          onClick={() => {
-                            setDeleteId(item.id);
-                            setDeleteType("review");
-                          }}
-                        >
-                          Delete
-                        </Button>
+                      <TableCell className="text-sm">{item.display_order}</TableCell>
+                      <TableCell className="text-sm">{item.is_active ? "Yes" : "No"}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col sm:flex-row gap-2">
+                          <Button
+                            size="sm"
+                            variant="outline"
+                            onClick={() => handleEditReview(item)}
+                            className="w-full sm:w-auto"
+                          >
+                            Edit
+                          </Button>
+                          <Button
+                            size="sm"
+                            variant="destructive"
+                            onClick={() => {
+                              setDeleteId(item.id);
+                              setDeleteType("review");
+                            }}
+                            className="w-full sm:w-auto"
+                          >
+                            Delete
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
+              </div>
             </CardContent>
           </Card>
         </TabsContent>
@@ -1571,21 +1613,24 @@ export default function HomeContentManagement() {
 
       {/* Delete Confirmation Dialog */}
       <AlertDialog open={!!deleteId} onOpenChange={() => setDeleteId(null)}>
-        <AlertDialogContent>
+        <AlertDialogContent className="w-[95vw] max-w-md mx-4">
           <AlertDialogHeader>
-            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-            <AlertDialogDescription>
+            <AlertDialogTitle className="text-lg md:text-xl">Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription className="text-sm md:text-base">
               This action cannot be undone. This will permanently delete this item.
             </AlertDialogDescription>
           </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel onClick={() => {
-              setDeleteId(null);
-              setDeleteType("");
-            }}>
+          <AlertDialogFooter className="flex-col sm:flex-row gap-2">
+            <AlertDialogCancel 
+              onClick={() => {
+                setDeleteId(null);
+                setDeleteType("");
+              }}
+              className="w-full sm:w-auto"
+            >
               Cancel
             </AlertDialogCancel>
-            <AlertDialogAction onClick={handleDelete} disabled={loading}>
+            <AlertDialogAction onClick={handleDelete} disabled={loading} className="w-full sm:w-auto">
               Delete
             </AlertDialogAction>
           </AlertDialogFooter>
