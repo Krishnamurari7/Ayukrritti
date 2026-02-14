@@ -15,6 +15,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
+import { AboutStoryImage } from "@/components/about-story-image";
 
 export const metadata: Metadata = {
   title: "About Us - Ayukrriti Ayurveda | Authentic Ayurvedic Products & Wellness",
@@ -227,12 +228,9 @@ export default async function AboutPage() {
             </div>
             <div className="relative aspect-video md:aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-[#D4AF37] group">
               {storyContent.image ? (
-                <Image
+                <AboutStoryImage
                   src={storyContent.image}
                   alt={storyContent.title || "Our Story"}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  unoptimized
                 />
               ) : (
                 <div className="w-full h-full bg-gradient-to-br from-[#F4E4B7] to-white flex items-center justify-center text-gray-400">
