@@ -32,6 +32,7 @@ A complete, production-ready Ayurvedic products e-commerce platform built with N
 - ✅ Email notifications (order confirmation, shipping, etc.)
 - ✅ Row Level Security (RLS) for data protection
 - ✅ SEO optimization (metadata, sitemap, robots.txt)
+- ✅ Meta Pixel integration for analytics and advertising
 - ✅ Responsive design
 - ✅ TypeScript for type safety
 - ✅ Server-side rendering for performance
@@ -79,6 +80,9 @@ RESEND_API_KEY=your_resend_api_key
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ADMIN_EMAIL=admin@example.com
 WEBHOOK_SECRET=your_webhook_secret
+
+# Meta Pixel (Facebook Pixel)
+NEXT_PUBLIC_META_PIXEL_ID=your_meta_pixel_id
 ```
 
 4. **Set up Supabase**
@@ -107,6 +111,14 @@ See [PAYMENT_GATEWAY_SETUP.md](./PAYMENT_GATEWAY_SETUP.md) for detailed configur
 - Sign up at [Resend](https://resend.com/)
 - Get your API key
 - Verify your domain for production emails
+
+7. **Configure Meta Pixel (Optional)**
+
+- Go to [Meta Events Manager](https://business.facebook.com/events_manager2)
+- Create a new pixel or use an existing one
+- Copy your Pixel ID
+- Add `NEXT_PUBLIC_META_PIXEL_ID=your_pixel_id` to `.env.local`
+- The pixel will automatically track PageView events on all pages
 
 ## 🚀 Running the Application
 
